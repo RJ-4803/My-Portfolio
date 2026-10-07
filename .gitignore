@@ -1,0 +1,11 @@
+# Not part of the published site
+archive/
+
+# Full-size original photos and screenshots. The site uses the copies in assets/.
+# Remove this line if you want the originals backed up in the repository too.
+Images/
+
+# Operating system files
+Thumbs.db
+desktop.ini
+.DS_Store
