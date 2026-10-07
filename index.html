@@ -2036,7 +2036,24 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
         gap: 8px 24px;
+      }
+      .to-top {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-2);
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .to-top:hover {
+        color: var(--mint);
+      }
+      .to-top .i {
+        width: 16px;
+        height: 16px;
+        rotate: -90deg; /* the sprite arrow points right; turn it to point up */
       }
 
       /* =====================================================================
@@ -2847,7 +2864,7 @@
               ></i>
             </div>
             <div class="wrap stmt-in">
-              <p class="kicker"><span>01</span>What I do</p>
+              <p class="kicker">What I do</p>
               <p class="stmt-text">
                 I build full-stack web applications with responsive interfaces,
                 reliable REST APIs, and well-structured databases.
@@ -3122,7 +3139,7 @@
         </div>
         <div class="wrap">
           <header class="sec-head">
-            <p class="kicker"><span>02</span>About</p>
+            <p class="kicker">About</p>
             <h2 data-rise>Turning real problems into working software.</h2>
           </header>
           <div class="about-grid">
@@ -3284,7 +3301,7 @@
         </div>
         <div class="wrap">
           <header class="sec-head">
-            <p class="kicker"><span>03</span>Skills</p>
+            <p class="kicker">Skills</p>
             <h2 data-rise>The tools I work with.</h2>
           </header>
           <div class="skill-grid">
@@ -3464,7 +3481,7 @@
         </div>
         <div class="wrap">
           <header class="sec-head">
-            <p class="kicker"><span>04</span>Achievements</p>
+            <p class="kicker">Achievements</p>
             <h2 data-rise>Beyond the classroom.</h2>
           </header>
           <div class="ach-grid">
@@ -3608,7 +3625,7 @@
                   loading="lazy"
                 />
               </div>
-              <p class="kicker"><span>05</span>Contact</p>
+              <p class="kicker">Contact</p>
               <h2 data-rise>Let's build something together.</h2>
               <p class="lead">
                 I'm looking for a Software Engineer internship where I can
@@ -3676,7 +3693,10 @@
     <footer class="foot">
       <div class="wrap">
         <span>© <span id="year">2026</span> Renujaan Ravichandran</span
-        ><span>Designed and built in Sri Lanka</span>
+        ><a class="to-top" href="#home"
+          >Back to top
+          <svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg
+        ></a>
       </div>
     </footer>
 
