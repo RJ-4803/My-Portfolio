@@ -2079,8 +2079,8 @@
         padding-left: 0;
         border-left: 0;
       }
-      .results li::before,
-      .results li::after {
+      /* a node fills with colour as --lit goes from 0 to 1 */
+      .results li::before {
         content: "";
         position: absolute;
         z-index: 1;
@@ -2089,17 +2089,21 @@
         width: 11px;
         height: 11px;
         border-radius: 50%;
-        background: var(--surface);
-        border: 1.5px solid var(--line-2);
-      }
-      .results li::after {
         background: var(--accent-2);
-        border-color: var(--accent-2);
-        box-shadow: 0 0 0 4px rgb(var(--accent-2-rgb) / 0.18);
-        opacity: var(--lit);
+        background: color-mix(
+          in srgb,
+          var(--accent-2) calc(var(--lit) * 100%),
+          var(--surface)
+        );
+        border: 1.5px solid var(--accent-2);
+        border-color: color-mix(
+          in srgb,
+          var(--accent-2) calc(var(--lit) * 100%),
+          rgb(var(--edge-rgb) / 0.4)
+        );
+        box-shadow: 0 0 0 4px rgb(var(--accent-2-rgb) / calc(0.18 * var(--lit)));
       }
-      .results li:first-child::before,
-      .results li:first-child::after {
+      .results li:first-child::before {
         left: 0;
       }
       .results b {
@@ -2591,30 +2595,39 @@
           border-top: 0;
           padding-top: 0;
         }
+        /* the checkpoint path turns vertical: one segment per row, from that row's node
+           down to the next row's node, so it ends exactly at the last result */
         .results {
           padding: 0 0 0 30px;
         }
         .results::before,
         .results::after {
-          left: 5px;
-          right: auto;
-          top: 12px;
-          bottom: 12px;
-          width: 1px;
-          height: auto;
+          display: none;
         }
-        .results::after {
-          scale: 1 var(--draw, 1);
-        }
-        .results li::before,
-        .results li::after {
+        .results li::before {
           left: -30px;
           top: 33px;
         }
-        .results li:first-child::before,
-        .results li:first-child::after {
+        .results li:first-child::before {
           left: -30px;
           top: 13px;
+        }
+        .results li:not(:last-child)::after {
+          content: "";
+          position: absolute;
+          left: -25px;
+          top: 38px;
+          width: 1px;
+          height: 100%;
+          --seg: clamp(0, (var(--draw, 1) - var(--at, 0)) * 3, 1);
+          background:
+            linear-gradient(var(--accent-2) 0 0) 0 0 / 100%
+              calc(var(--seg) * 100%) no-repeat,
+            var(--line-2);
+        }
+        .results li:first-child::after {
+          top: 18px;
+          height: calc(100% + 20px);
         }
         .contact-pin {
           align-items: end;
@@ -3877,7 +3890,7 @@
             !reduce &&
             matchMedia("(min-width: 900px)").matches &&
             !conn.saveData &&
-            !/2g|3g/.test(conn.effectiveType || "") &&
+            !/2g/.test(conn.effectiveType || "") &&
             (navigator.deviceMemory || 8) >= 4;
           const show = () => vid.classList.add("on");
           const still = () => {
