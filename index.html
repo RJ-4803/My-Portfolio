@@ -1,14 +1,85 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8" />
+    <script>
+      document.documentElement.className = "js"; /* lets the styles know scripting is on */
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Renujaan Ravichandran · Software Engineer Intern</title>
+    <title>Renujaan Ravichandran | Software Engineering Undergraduate</title>
     <meta
       name="description"
-      content="Renujaan Ravichandran is a Software Engineering undergraduate at Sabaragamuwa University of Sri Lanka who builds full-stack web applications with React, Node.js, Express, PHP and MySQL."
+      content="Portfolio of Renujaan Ravichandran, a Software Engineering undergraduate at Sabaragamuwa University of Sri Lanka who builds full-stack web applications with React, Node.js, Express, PHP and MySQL. Open to software engineer internships."
     />
-    <meta name="theme-color" content="#0a1122" />
+    <meta name="theme-color" content="#060a13" />
+    <meta name="author" content="Renujaan Ravichandran" />
+    <link rel="canonical" href="https://rj-4803.github.io/My-Portfolio/" />
+
+    <!-- link previews (LinkedIn, WhatsApp, Slack, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Renujaan Ravichandran" />
+    <meta property="og:url" content="https://rj-4803.github.io/My-Portfolio/" />
+    <meta
+      property="og:title"
+      content="Renujaan Ravichandran | Software Engineering Undergraduate"
+    />
+    <meta
+      property="og:description"
+      content="Software Engineering undergraduate building full-stack web applications with React, Node.js, Express, PHP and MySQL. Open to software engineer internships."
+    />
+    <meta property="og:image" content="https://rj-4803.github.io/My-Portfolio/assets/img/og-card.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Renujaan Ravichandran, Software Engineering Undergraduate. Builds full-stack web applications."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Renujaan Ravichandran | Software Engineering Undergraduate"
+    />
+    <meta
+      name="twitter:description"
+      content="Software Engineering undergraduate building full-stack web applications with React, Node.js, Express, PHP and MySQL."
+    />
+    <meta name="twitter:image" content="https://rj-4803.github.io/My-Portfolio/assets/img/og-card.jpg" />
+
+    <!-- structured data: tells search engines who this page is about -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Renujaan Ravichandran",
+        "url": "https://rj-4803.github.io/My-Portfolio/",
+        "image": "https://rj-4803.github.io/My-Portfolio/assets/img/profile.jpg",
+        "jobTitle": "Software Engineering Undergraduate",
+        "description": "Software Engineering undergraduate who builds full-stack web applications.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Batticaloa",
+          "addressCountry": "LK"
+        },
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "Sabaragamuwa University of Sri Lanka"
+        },
+        "knowsAbout": [
+          "JavaScript",
+          "React",
+          "Node.js",
+          "Express.js",
+          "PHP",
+          "MySQL",
+          "REST APIs"
+        ],
+        "sameAs": [
+          "https://github.com/RJ-4803",
+          "https://www.linkedin.com/in/renujaan",
+          "https://medium.com/@renujaanravichandran"
+        ]
+      }
+    </script>
     <link
       rel="icon"
       type="image/png"
@@ -34,21 +105,54 @@
    1. TOKENS
    ===================================================================== */
       :root {
-        --bg: #0a1122;
-        --bg-2: #0d1730;
-        --card: #131f3a;
-        --card-2: #1a2848;
-        --line: rgba(150, 180, 255, 0.16);
-        --line-2: rgba(150, 180, 255, 0.32);
-        --text: #f1f5ff;
-        --text-2: #c6d1e6;
-        --muted: #9aaac6;
-        --cyan: #46c8ff;
-        --mint: #3df5c8;
-        --violet: #a596ff;
-        --amber: #ffb65c;
+        /* surfaces: near-black navy that lightens one step with each level of elevation.
+           Colours are stored as channels so any opacity can be mixed from them:
+           rgb(var(--accent-rgb) / 0.2) */
+        --bg-rgb: 6 10 19;
+        --surface-rgb: 13 21 36;
+        --bg: rgb(var(--bg-rgb));
+        --bg-2: #080d19;
+        --surface: rgb(var(--surface-rgb));
+        --surface-2: #131d31;
+        /* text */
+        --text: #eef3fb;
+        --text-2: #c3cde0;
+        --muted: #94a3bc;
+        /* borders */
+        --edge-rgb: 158 182 224;
+        --line: rgb(var(--edge-rgb) / 0.13);
+        --line-2: rgb(var(--edge-rgb) / 0.26);
+        /* accents: electric blue marks interaction and data, teal marks active and confirmed states */
+        --accent-rgb: 77 178 255;
+        --accent-2-rgb: 54 227 201;
+        --accent: rgb(var(--accent-rgb));
+        --accent-2: rgb(var(--accent-2-rgb));
+        --accent-glow: rgb(var(--accent-rgb) / 0.26);
         --rose: #ff6d8d;
-        --grad: linear-gradient(100deg, #46c8ff, #3df5c8);
+        --grad: linear-gradient(100deg, var(--accent), var(--accent-2));
+        /* technical background */
+        --grid-rgb: 150 178 226;
+        --grid-o: 0.085; /* opacity of one grid line */
+        --grid-cell: 56px;
+        --trace-o: 0.26; /* circuit traces and wires */
+        --node-o: 0.6; /* nodes */
+        --vid-o: 0.5; /* the optional background video */
+        --vid-overlay: linear-gradient(
+          180deg,
+          rgb(var(--bg-rgb) / 0.72),
+          rgb(var(--bg-rgb) / 0.5) 45%,
+          rgb(var(--bg-rgb) / 0.88)
+        );
+        /* glass */
+        --blur: 18px;
+        /* motion: interaction is quick, reveals are slower, ambient movement is slowest */
+        --dur-1: 0.2s; /* hover and focus */
+        --dur-2: 0.35s; /* larger interactive moves */
+        --dur-3: 0.7s; /* reveals */
+        --dur-signal: 7s; /* one signal crossing the request path */
+        --dur-amb: 18s; /* ambient drift */
+        --ease: var(--ease);
+        /* type and layout */
         --fd: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
         --fb: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
         --fm:
@@ -57,11 +161,11 @@
         --gut: clamp(20px, 4vw, 48px);
         --wrap: 1180px;
         --r: 20px;
-        --sky-h: clamp(
-          200px,
-          36vh,
-          400px
-        ); /* height of the tallest skyline layer */
+        --bus-h: clamp(
+          84px,
+          14vh,
+          150px
+        ); /* room at the foot of the hero for the request path */
       }
 
       /* =====================================================================
@@ -117,12 +221,12 @@
         max-width: 100%;
       }
       :focus-visible {
-        outline: 2px solid var(--mint);
+        outline: 2px solid var(--accent-2);
         outline-offset: 3px;
         border-radius: 6px;
       }
       ::selection {
-        background: var(--mint);
+        background: var(--accent-2);
         color: #04131d;
       }
 
@@ -146,7 +250,7 @@
         z-index: 200;
         padding: 10px 16px;
         border-radius: 10px;
-        background: var(--mint);
+        background: var(--accent-2);
         color: #04131d;
         font-weight: 600;
       }
@@ -189,10 +293,10 @@
         font: 600 1rem/1 var(--fb);
         cursor: pointer;
         transition:
-          transform 0.2s,
-          filter 0.2s,
-          background 0.2s,
-          border-color 0.2s;
+          transform var(--dur-1),
+          filter var(--dur-1),
+          background var(--dur-1),
+          border-color var(--dur-1);
       }
       .btn:hover {
         transform: translateY(-2px);
@@ -200,19 +304,19 @@
       .btn.primary {
         background: var(--grad);
         color: #04131d;
-        box-shadow: 0 10px 30px -10px rgba(61, 245, 200, 0.6);
+        box-shadow: 0 10px 30px -10px rgb(var(--accent-2-rgb) / 0.6);
       }
       .btn.primary:hover {
         filter: brightness(1.08);
       }
       .btn.ghost {
-        background: rgba(150, 180, 255, 0.08);
+        background: rgb(var(--edge-rgb) / 0.08);
         border-color: var(--line-2);
         color: var(--text);
       }
       .btn.ghost:hover {
-        background: rgba(150, 180, 255, 0.16);
-        border-color: var(--cyan);
+        background: rgb(var(--edge-rgb) / 0.16);
+        border-color: var(--accent);
       }
       .btn.sm {
         padding: 11px 16px;
@@ -233,10 +337,36 @@
       .chips li {
         padding: 6px 12px;
         border-radius: 999px;
-        background: rgba(70, 200, 255, 0.1);
-        border: 1px solid rgba(70, 200, 255, 0.3);
+        background: rgb(var(--accent-rgb) / 0.1);
+        border: 1px solid rgb(var(--accent-rgb) / 0.3);
         color: #dcf3ff;
         font: 500 0.88rem/1.3 var(--fb);
+      }
+      /* a skill that the projects on this page actually use */
+      .chips li.core {
+        background: rgb(var(--accent-2-rgb) / 0.14);
+        border-color: rgb(var(--accent-2-rgb) / 0.55);
+        color: #d6fff4;
+      }
+      .legend {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 16px;
+        font-size: 0.95rem;
+        color: var(--text-2);
+      }
+      .legend i {
+        width: 26px;
+        height: 14px;
+        border-radius: 999px;
+        background: rgb(var(--accent-2-rgb) / 0.14);
+        border: 1px solid rgb(var(--accent-2-rgb) / 0.55);
+      }
+
+      /* scenes that are scrolled out of view stop animating (their scroll-linked reveals keep working) */
+      .offscreen *:not(.rv) {
+        animation-play-state: paused;
       }
 
       /* =====================================================================
@@ -266,8 +396,8 @@
           var(--g-sheen),
           linear-gradient(
             180deg,
-            rgba(24, 38, 76, 0.76),
-            rgba(10, 17, 34, 0.82)
+            rgb(var(--surface-rgb) / 0.8),
+            rgb(var(--bg-rgb) / 0.82)
           );
         -webkit-backdrop-filter: blur(22px) saturate(180%);
         backdrop-filter: blur(22px) saturate(180%);
@@ -296,8 +426,8 @@
       .brand-mark {
         display: grid;
         place-items: center;
-        min-width: 38px;
-        height: 38px;
+        min-width: 40px;
+        height: 40px;
         padding: 0 14px;
         border-radius: 10px;
         background: var(--grad);
@@ -316,13 +446,13 @@
         font: 500 0.95rem/1 var(--fb);
         color: var(--text-2);
         transition:
-          color 0.2s,
-          background 0.2s;
+          color var(--dur-1),
+          background var(--dur-1);
       }
       .nav-links a:hover,
       .nav-links a.active {
         color: var(--text);
-        background: rgba(150, 180, 255, 0.13);
+        background: rgb(var(--edge-rgb) / 0.13);
       }
       .nav-links a.nav-cta {
         margin-left: 8px;
@@ -333,48 +463,59 @@
       .nav-links a.nav-cta:hover {
         filter: brightness(1.08);
       }
-      .nav-toggle {
-        position: absolute;
-        opacity: 0;
-        pointer-events: none;
-      }
+      /* menu button (tablets and phones). It is a real <button>, so it works from the keyboard. */
       .nav-burger {
         display: none;
         width: 44px;
         height: 44px;
+        padding: 0;
         border-radius: 10px;
         border: 1px solid var(--line-2);
+        background: none;
         cursor: pointer;
         place-items: center;
       }
-      .nav-burger span,
-      .nav-burger span::before,
-      .nav-burger span::after {
+      .bars,
+      .bars::before,
+      .bars::after {
         content: "";
         display: block;
         width: 20px;
         height: 2px;
         border-radius: 2px;
         background: var(--text);
+        transition:
+          rotate var(--dur-1),
+          top var(--dur-1),
+          background var(--dur-1);
       }
-      .nav-burger span {
+      .bars {
         position: relative;
       }
-      .nav-burger span::before {
+      .bars::before {
         position: absolute;
         top: -6px;
       }
-      .nav-burger span::after {
+      .bars::after {
         position: absolute;
         top: 6px;
       }
-      .nav-toggle:focus-visible + .nav-burger {
-        outline: 2px solid var(--mint);
-        outline-offset: 3px;
+      /* open: the three bars become a cross */
+      .nav-burger[aria-expanded="true"] .bars {
+        background: transparent;
+      }
+      .nav-burger[aria-expanded="true"] .bars::before {
+        top: 0;
+        rotate: 45deg;
+      }
+      .nav-burger[aria-expanded="true"] .bars::after {
+        top: 0;
+        rotate: -45deg;
       }
 
       /* =====================================================================
-   4. SCENE PIECES  (decorative layers; text never sits directly on them)
+   4. SCENE PIECES  (the technical background: grid, traces, nodes and signals.
+                     Decorative only: text never sits directly on them)
    ===================================================================== */
       .scene,
       .band {
@@ -382,7 +523,7 @@
         isolation: isolate;
         overflow: hidden;
         overflow: clip;
-        background: #070c1c;
+        background: var(--bg);
       }
       .sky,
       .band-bg {
@@ -390,520 +531,284 @@
         inset: 0;
         z-index: -1;
       }
-      .par-h,
       .par-x,
       .par-v {
         will-change: translate;
       }
-
-      /* star dust */
-      .stars {
+      /* a layer that also leans a few pixels toward the pointer (the script sets --mx) */
+      .depth {
         position: absolute;
         inset: 0;
-        background-repeat: repeat;
-      }
-      .stars.a {
-        background-size: 340px 340px;
-        animation: twinkle 5s ease-in-out infinite alternate;
-        background-image:
-          radial-gradient(1.6px 1.6px at 24px 36px, #fff, transparent),
-          radial-gradient(1.3px 1.3px at 150px 92px, #cfeaff, transparent),
-          radial-gradient(1.8px 1.8px at 212px 190px, #fff, transparent),
-          radial-gradient(1.2px 1.2px at 88px 232px, #b9f5e6, transparent),
-          radial-gradient(1.4px 1.4px at 300px 60px, #fff, transparent),
-          radial-gradient(1.2px 1.2px at 270px 284px, #d6ccff, transparent);
-      }
-      .stars.b {
-        background-size: 470px 470px;
-        animation: twinkle 7s ease-in-out -3s infinite alternate;
-        background-image:
-          radial-gradient(2.2px 2.2px at 60px 110px, #fff, transparent),
-          radial-gradient(1.8px 1.8px at 250px 40px, #bfe9ff, transparent),
-          radial-gradient(2px 2px at 400px 230px, #fff, transparent),
-          radial-gradient(1.6px 1.6px at 130px 370px, #c9ffee, transparent),
-          radial-gradient(2.2px 2.2px at 340px 420px, #e0d8ff, transparent);
-      }
-      @keyframes twinkle {
-        from {
-          opacity: 0.45;
-        }
-        to {
-          opacity: 1;
-        }
+        transform: translate3d(calc(var(--mx, 0) * var(--m, 0px)), 0, 0);
       }
 
-      /* four-point sparkles */
-      .sparkles {
+      /* engineering grid: fine cells, with a stronger line every fourth */
+      .grid,
+      .sec::before {
+        --g1: rgb(var(--grid-rgb) / var(--grid-o));
+        --g4: rgb(var(--grid-rgb) / calc(var(--grid-o) * 1.6));
+        --c4: calc(var(--grid-cell) * 4);
+        background-image:
+          linear-gradient(var(--g4) 1px, transparent 1px),
+          linear-gradient(90deg, var(--g4) 1px, transparent 1px),
+          linear-gradient(var(--g1) 1px, transparent 1px),
+          linear-gradient(90deg, var(--g1) 1px, transparent 1px);
+        background-size:
+          var(--c4) var(--c4),
+          var(--c4) var(--c4),
+          var(--grid-cell) var(--grid-cell),
+          var(--grid-cell) var(--grid-cell);
+        background-position: 50% 0;
+      }
+      .grid {
         position: absolute;
         inset: 0;
       }
-      .sp {
+
+      /* circuit traces (inline SVG): thin paths that end in nodes, with signals travelling along them */
+      .net {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .net path {
+        fill: none;
+        stroke: rgb(var(--accent-rgb) / var(--trace-o));
+        stroke-width: 1;
+      }
+      .net circle {
+        fill: var(--bg);
+        stroke: rgb(var(--accent-rgb) / var(--node-o));
+        stroke-width: 1.5;
+      }
+      .net .dot {
+        fill: rgb(var(--accent-2-rgb) / var(--node-o));
+        stroke: none;
+      }
+      /* a signal is a short bright dash; it waits just before the start of its path */
+      .net .sig {
+        stroke: var(--accent-2);
+        stroke-width: 1.6;
+        stroke-linecap: round;
+        stroke-dasharray: 36 2000;
+        stroke-dashoffset: 42;
+        animation: signal var(--t, var(--dur-signal)) linear var(--dl, 0s)
+          infinite;
+      }
+      @keyframes signal {
+        70%,
+        100% {
+          stroke-dashoffset: -1000;
+        }
+      }
+      .net .ping {
+        fill: none;
+        stroke: rgb(var(--accent-rgb) / 0.7);
+        stroke-width: 1;
+        opacity: 0;
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: ping 5s ease-out var(--dl, 0s) infinite;
+      }
+      @keyframes ping {
+        0% {
+          opacity: 0.7;
+          transform: scale(1);
+        }
+        60%,
+        100% {
+          opacity: 0;
+          transform: scale(4.2);
+        }
+      }
+
+      /* a wire: a hairline with a signal running along it (moved with transforms only) */
+      .wire {
+        position: relative;
+        flex: 1;
+        min-width: 20px;
+        height: 9px;
+        overflow: hidden;
+        container-type: inline-size;
+        background: linear-gradient(
+            rgb(var(--accent-rgb) / var(--trace-o)) 0 0
+          )
+          50% / 100% 1px no-repeat;
+      }
+      .wire i {
+        position: absolute;
+        left: 0;
+        top: 3px;
+        width: 64px;
+        height: 3px;
+        border-radius: 3px;
+        background: linear-gradient(90deg, transparent, var(--accent-2));
+        translate: -64px 0;
+        animation: run var(--dur-signal) linear var(--dl, 0s) infinite;
+      }
+      @keyframes run {
+        33%,
+        100% {
+          translate: 100cqw 0;
+        }
+      }
+      /* lanes: wires that come in from the edge of a scene and stop at a node */
+      .lane {
+        position: absolute;
+        left: 0;
+        top: var(--y);
+        width: var(--w);
+      }
+      .lane::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 1.5px solid rgb(var(--accent-rgb) / var(--node-o));
+      }
+      .lane.r {
+        left: auto;
+        right: 0;
+      }
+      .lane.r::after {
+        right: auto;
+        left: 0;
+      }
+      .lane.r i {
+        background: linear-gradient(270deg, transparent, var(--accent-2));
+        translate: 100cqw 0;
+        animation-name: run-back;
+      }
+      @keyframes run-back {
+        33%,
+        100% {
+          translate: -64px 0;
+        }
+      }
+      /* a vertical wire */
+      .rail {
+        position: absolute;
+        width: 9px;
+        overflow: hidden;
+        container-type: size;
+        background: linear-gradient(
+            rgb(var(--accent-rgb) / var(--trace-o)) 0 0
+          )
+          50% / 1px 100% no-repeat;
+      }
+      .rail i {
+        position: absolute;
+        left: 3px;
+        top: 0;
+        width: 3px;
+        height: 64px;
+        border-radius: 3px;
+        background: linear-gradient(180deg, transparent, var(--accent-2));
+        translate: 0 -64px;
+        animation: fall var(--dur-signal) linear var(--dl, 0s) infinite;
+      }
+      @keyframes fall {
+        60%,
+        100% {
+          translate: 0 100cqh;
+        }
+      }
+
+      /* thin concentric rings: the portrait and the contact card each sit at the centre of a set */
+      .rings {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: min(108%, 540px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 1px solid rgb(var(--accent-rgb) / 0.18);
+        background: radial-gradient(
+          closest-side,
+          rgb(var(--accent-rgb) / 0.2),
+          rgb(var(--accent-rgb) / 0.05) 56%,
+          transparent 80%
+        );
+      }
+      .rings::before,
+      .rings::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+      }
+      .rings::before {
+        inset: 13%;
+        border: 1px dashed rgb(var(--accent-rgb) / 0.32);
+      }
+      .rings::after {
+        inset: 28%;
+        border: 1px solid rgb(var(--accent-2-rgb) / 0.22);
+      }
+      .rings i {
         position: absolute;
         left: var(--x);
         top: var(--y);
-        width: var(--z, 18px);
-        height: var(--z, 18px);
-        background:
-          linear-gradient(90deg, transparent, #fff, transparent) center/100%
-            1.6px no-repeat,
-          linear-gradient(0deg, transparent, #fff, transparent) center/1.6px
-            100% no-repeat;
-        filter: drop-shadow(0 0 6px var(--c, #7de3ff));
-        animation: spark var(--d, 3.2s) ease-in-out var(--dl, 0s) infinite;
+        width: 9px;
+        height: 9px;
+        margin: -4.5px 0 0 -4.5px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 1.5px solid rgb(var(--accent-rgb) / var(--node-o));
       }
-      @keyframes spark {
-        0%,
-        100% {
-          opacity: 0.15;
-          scale: 0.55;
+      .rings i.live {
+        border-color: var(--accent-2);
+        box-shadow: 0 0 0 4px rgb(var(--accent-2-rgb) / 0.14);
+      }
+      /* a ring that widens and fades, like a ping being answered */
+      .rings .pulse {
+        position: absolute;
+        inset: 30%;
+        border-radius: 50%;
+        border: 1px solid rgb(var(--accent-rgb) / 0.55);
+        opacity: 0;
+        animation: widen 7s ease-out var(--dl, 0s) infinite;
+      }
+      @keyframes widen {
+        0% {
+          opacity: 0.6;
+          scale: 0.9;
         }
-        50% {
-          opacity: 1;
-          scale: 1;
+        75%,
+        100% {
+          opacity: 0;
+          scale: 2.3;
         }
       }
 
-      /* skyline silhouettes (shapes generated once, drawn with clip-path) */
-      .city {
+      /* optional background video: under everything else in its scene, behind an overlay.
+         The script adds the <video> (or a still image) only when a path is set in the markup. */
+      .vid {
         position: absolute;
-        bottom: -2px;
-        left: calc(50% - max(52%, 640px));
-        width: max(104%, 1280px);
-        height: var(--ch);
-        transform: translate3d(calc(var(--mx, 0) * var(--m, 0px)), 0, 0);
+        inset: 0;
+        opacity: 0;
+        transition: opacity 1.2s;
       }
-      .city::before {
+      .vid.on {
+        opacity: 1;
+      }
+      .vid > * {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: var(--vid-o);
+      }
+      .vid::after {
         content: "";
         position: absolute;
         inset: 0;
-      }
-      .city::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: calc(100% - 1px);
-        height: 60vh;
-        background: var(--base);
-      }
-      .city.far {
-        --ch: var(--sky-h);
-        --base: #22388a;
-        opacity: 0.7;
-      }
-      .city.far::before {
-        clip-path: polygon(
-          0% 100%,
-          0% 32.25%,
-          4.14% 32.25%,
-          4.14% 34.64%,
-          8.32% 34.64%,
-          8.32% 34.45%,
-          11.55% 34.45%,
-          11.55% 53.67%,
-          12.46% 53.67%,
-          12.46% 43%,
-          15.93% 43%,
-          15.93% 53.67%,
-          16.85% 53.67%,
-          16.85% 12.82%,
-          19.59% 12.82%,
-          19.59% 29.68%,
-          20.37% 29.68%,
-          20.37% 20.99%,
-          21.88% 20.99%,
-          21.88% 14.22%,
-          22.12% 14.22%,
-          22.12% 20.99%,
-          23.63% 20.99%,
-          23.63% 29.68%,
-          24.41% 29.68%,
-          24.41% 56.62%,
-          27.83% 56.62%,
-          27.83% 19.25%,
-          31.93% 19.25%,
-          31.93% 35.01%,
-          36.71% 35.01%,
-          36.71% 45.2%,
-          40.86% 45.2%,
-          40.86% 19.35%,
-          46.85% 19.35%,
-          46.85% 47.44%,
-          47.47% 47.44%,
-          47.47% 37.07%,
-          49.9% 37.07%,
-          49.9% 47.44%,
-          50.52% 47.44%,
-          50.52% 40.22%,
-          56% 40.22%,
-          56% 57.97%,
-          57.57% 57.97%,
-          57.57% 49.69%,
-          59.9% 49.69%,
-          59.9% 57.97%,
-          61.48% 57.97%,
-          61.48% 54.64%,
-          65.43% 54.64%,
-          65.43% 45.59%,
-          66.51% 45.59%,
-          66.51% 33.84%,
-          69.59% 33.84%,
-          69.59% 45.59%,
-          70.68% 45.59%,
-          70.68% 46.67%,
-          71.18% 46.67%,
-          71.18% 36.09%,
-          72.06% 36.09%,
-          72.06% 27.85%,
-          72.3% 27.85%,
-          72.3% 36.09%,
-          73.17% 36.09%,
-          73.17% 46.67%,
-          73.68% 46.67%,
-          73.68% 49.23%,
-          77.8% 49.23%,
-          77.8% 28.39%,
-          78.47% 28.39%,
-          78.47% 21.9%,
-          80.18% 21.9%,
-          80.18% 28.39%,
-          80.85% 28.39%,
-          80.85% 21.04%,
-          82.52% 21.04%,
-          82.52% 14.57%,
-          85.07% 14.57%,
-          85.07% 21.04%,
-          86.75% 21.04%,
-          86.75% 28.48%,
-          88.39% 28.48%,
-          88.39% 21.98%,
-          90.61% 21.98%,
-          90.61% 28.48%,
-          92.25% 28.48%,
-          92.25% 42.87%,
-          93.14% 42.87%,
-          93.14% 37.24%,
-          96.59% 37.24%,
-          96.59% 42.87%,
-          97.48% 42.87%,
-          97.48% 30.34%,
-          98.04% 30.34%,
-          98.04% 18.63%,
-          99.44% 18.63%,
-          99.44% 30.34%,
-          100% 30.34%,
-          100% 100%
-        );
-        background: linear-gradient(180deg, #5278dc, #22388a);
-      }
-      .city.mid {
-        --ch: calc(var(--sky-h) * 0.76);
-        --base: #101f55;
-        --b: #16296c;
-      }
-      .city.mid::before {
-        clip-path: polygon(
-          0% 100%,
-          0% 12.78%,
-          4.4% 12.78%,
-          4.4% 32.03%,
-          4.92% 32.03%,
-          4.92% 26.12%,
-          5.39% 26.12%,
-          5.39% 18.34%,
-          5.63% 18.34%,
-          5.63% 26.12%,
-          6.1% 26.12%,
-          6.1% 32.03%,
-          6.62% 32.03%,
-          6.62% 39.43%,
-          7.06% 39.43%,
-          7.06% 29.46%,
-          8.75% 29.46%,
-          8.75% 39.43%,
-          9.2% 39.43%,
-          9.2% 24.35%,
-          9.76% 24.35%,
-          9.76% 13.87%,
-          11.97% 13.87%,
-          11.97% 24.35%,
-          12.53% 24.35%,
-          12.53% 30.47%,
-          16.24% 30.47%,
-          16.24% 22.97%,
-          16.95% 22.97%,
-          16.95% 13.35%,
-          18.48% 13.35%,
-          18.48% 22.97%,
-          19.18% 22.97%,
-          19.18% 38.4%,
-          21.41% 38.4%,
-          21.41% 39.84%,
-          24.94% 39.84%,
-          24.94% 54.36%,
-          25.62% 54.36%,
-          25.62% 47.99%,
-          26.06% 47.99%,
-          26.06% 41.6%,
-          26.3% 41.6%,
-          26.3% 47.99%,
-          26.74% 47.99%,
-          26.74% 54.36%,
-          27.42% 54.36%,
-          27.42% 49.12%,
-          29.52% 49.12%,
-          29.52% 46.14%,
-          30.34% 46.14%,
-          30.34% 39%,
-          32.82% 39%,
-          32.82% 46.14%,
-          33.65% 46.14%,
-          33.65% 50.05%,
-          34.57% 50.05%,
-          34.57% 40.1%,
-          36.15% 40.1%,
-          36.15% 50.05%,
-          37.08% 50.05%,
-          37.08% 34.54%,
-          39.7% 34.54%,
-          39.7% 12.94%,
-          40.75% 12.94%,
-          40.75% 7.55%,
-          42.19% 7.55%,
-          42.19% 12.94%,
-          43.24% 12.94%,
-          43.24% 20.28%,
-          45.3% 20.28%,
-          45.3% 20.53%,
-          49.83% 20.53%,
-          49.83% 10.64%,
-          53.23% 10.64%,
-          53.23% 11.38%,
-          53.77% 11.38%,
-          53.77% 5.85%,
-          55.59% 5.85%,
-          55.59% 11.38%,
-          56.13% 11.38%,
-          56.13% 13.59%,
-          58.64% 13.59%,
-          58.64% 58.41%,
-          61.2% 58.41%,
-          61.2% 34.64%,
-          63.64% 34.64%,
-          63.64% 41.23%,
-          66.3% 41.23%,
-          66.3% 45.49%,
-          69.46% 45.49%,
-          69.46% 15.66%,
-          73.57% 15.66%,
-          73.57% 26.58%,
-          76.65% 26.58%,
-          76.65% 51.13%,
-          77.44% 51.13%,
-          77.44% 40.72%,
-          79.51% 40.72%,
-          79.51% 51.13%,
-          80.31% 51.13%,
-          80.31% 19.37%,
-          81.16% 19.37%,
-          81.16% 12.04%,
-          82.89% 12.04%,
-          82.89% 19.37%,
-          83.74% 19.37%,
-          83.74% 50.59%,
-          87.91% 50.59%,
-          87.91% 33.65%,
-          90.12% 33.65%,
-          90.12% 33.71%,
-          92.73% 33.71%,
-          92.73% 25.21%,
-          93.4% 25.21%,
-          93.4% 14.71%,
-          94.19% 14.71%,
-          94.19% 5.24%,
-          94.43% 5.24%,
-          94.43% 14.71%,
-          95.22% 14.71%,
-          95.22% 25.21%,
-          95.9% 25.21%,
-          95.9% 27.22%,
-          96.46% 27.22%,
-          96.46% 19.26%,
-          97.04% 19.26%,
-          97.04% 10.46%,
-          97.28% 10.46%,
-          97.28% 19.26%,
-          97.86% 19.26%,
-          97.86% 27.22%,
-          98.42% 27.22%,
-          98.42% 26.79%,
-          100% 26.79%,
-          100% 100%
-        );
-        background:
-          linear-gradient(180deg, rgba(16, 31, 85, 0) 30%, #101f55 96%),
-          repeating-linear-gradient(
-            90deg,
-            var(--b) 0 29px,
-            transparent 29px 47px
-          ),
-          repeating-linear-gradient(
-            0deg,
-            var(--b) 0 21px,
-            transparent 21px 57px
-          ),
-          repeating-linear-gradient(90deg, var(--b) 0 5px, transparent 5px 9px),
-          repeating-linear-gradient(0deg, var(--b) 0 7px, transparent 7px 11px),
-          #9be6ff;
-      }
-      .city.near {
-        --ch: calc(var(--sky-h) * 0.46);
-        --base: var(--bg);
-        --b: var(--bg);
-      }
-      .city.near::before {
-        clip-path: polygon(
-          0% 100%,
-          0% 64.87%,
-          4.45% 64.87%,
-          4.45% 23.27%,
-          9.37% 23.27%,
-          9.37% 49.32%,
-          13.66% 49.32%,
-          13.66% 31.75%,
-          16.39% 31.75%,
-          16.39% 48.8%,
-          19.63% 48.8%,
-          19.63% 16.26%,
-          23.37% 16.26%,
-          23.37% 64.9%,
-          24.35% 64.9%,
-          24.35% 57.37%,
-          27.3% 57.37%,
-          27.3% 64.9%,
-          28.28% 64.9%,
-          28.28% 38.49%,
-          33.16% 38.49%,
-          33.16% 68.09%,
-          37.28% 68.09%,
-          37.28% 46.65%,
-          38.05% 46.65%,
-          38.05% 35.28%,
-          38.68% 35.28%,
-          38.68% 26.96%,
-          38.92% 26.96%,
-          38.92% 35.28%,
-          39.56% 35.28%,
-          39.56% 46.65%,
-          40.32% 46.65%,
-          40.32% 50.3%,
-          41.01% 50.3%,
-          41.01% 40.2%,
-          42.1% 40.2%,
-          42.1% 50.3%,
-          42.79% 50.3%,
-          42.79% 29.74%,
-          45.84% 29.74%,
-          45.84% 18.69%,
-          49.78% 18.69%,
-          49.78% 29.84%,
-          53.03% 29.84%,
-          53.03% 35.4%,
-          53.7% 35.4%,
-          53.7% 26.51%,
-          54.42% 26.51%,
-          54.42% 17.91%,
-          54.66% 17.91%,
-          54.66% 26.51%,
-          55.39% 26.51%,
-          55.39% 35.4%,
-          56.06% 35.4%,
-          56.06% 33.61%,
-          56.5% 33.61%,
-          56.5% 21.62%,
-          57.28% 21.62%,
-          57.28% 14.99%,
-          57.52% 14.99%,
-          57.52% 21.62%,
-          58.29% 21.62%,
-          58.29% 33.61%,
-          58.73% 33.61%,
-          58.73% 56.27%,
-          62.65% 56.27%,
-          62.65% 37.71%,
-          66.47% 37.71%,
-          66.47% 58.16%,
-          69.75% 58.16%,
-          69.75% 40.85%,
-          73.44% 40.85%,
-          73.44% 54.47%,
-          75.86% 54.47%,
-          75.86% 27.78%,
-          78.43% 27.78%,
-          78.43% 59.11%,
-          81.77% 59.11%,
-          81.77% 24%,
-          84.31% 24%,
-          84.31% 30.73%,
-          85.52% 30.73%,
-          85.52% 19.28%,
-          86.74% 19.28%,
-          86.74% 9.88%,
-          86.98% 9.88%,
-          86.98% 19.28%,
-          88.2% 19.28%,
-          88.2% 30.73%,
-          89.41% 30.73%,
-          89.41% 58.98%,
-          93.83% 58.98%,
-          93.83% 69.74%,
-          94.59% 69.74%,
-          94.59% 64.55%,
-          96.36% 64.55%,
-          96.36% 69.74%,
-          97.13% 69.74%,
-          97.13% 51.37%,
-          100% 51.37%,
-          100% 100%
-        );
-        background:
-          repeating-linear-gradient(
-            90deg,
-            var(--b) 0 53px,
-            transparent 53px 71px
-          ),
-          repeating-linear-gradient(
-            0deg,
-            var(--b) 0 37px,
-            transparent 37px 79px
-          ),
-          repeating-linear-gradient(90deg, var(--b) 0 5px, transparent 5px 9px),
-          repeating-linear-gradient(0deg, var(--b) 0 7px, transparent 7px 11px),
-          #3df5c8;
-      }
-
-      /* perspective grid floor: its lines flow toward you as you scroll */
-      .floor {
-        position: absolute;
-        left: -80%;
-        right: -80%;
-        bottom: 0;
-        height: 92%;
-        transform-origin: 50% 100%;
-        transform: perspective(420px) rotateX(58deg);
-        background:
-          repeating-linear-gradient(
-            90deg,
-            rgba(110, 215, 255, 0.75) 0 2px,
-            transparent 2px 90px
-          ),
-          repeating-linear-gradient(
-            0deg,
-            rgba(110, 215, 255, 0.75) 0 2px,
-            transparent 2px 90px
-          );
-        -webkit-mask-image: linear-gradient(180deg, transparent 30%, #000 82%);
-        mask-image: linear-gradient(180deg, transparent 30%, #000 82%);
+        background: var(--vid-overlay);
       }
 
       /* =====================================================================
@@ -917,8 +822,7 @@
         min-height: 100svh;
         display: flex;
         align-items: center;
-        padding: calc(var(--nav-h) + clamp(28px, 5vh, 56px)) 0
-          calc(var(--sky-h) + 12px);
+        padding: calc(var(--nav-h) + clamp(28px, 5vh, 56px)) 0 var(--bus-h);
       }
       .pin .hero {
         position: sticky;
@@ -927,26 +831,56 @@
       .hero .sky {
         background:
           radial-gradient(
-            60% 46% at 74% 100%,
-            rgba(61, 245, 200, 0.34),
-            transparent 70%
+            70% 60% at 76% 34%,
+            rgb(var(--accent-rgb) / 0.09),
+            transparent 72%
           ),
-          radial-gradient(
-            60% 50% at 18% 100%,
-            rgba(165, 150, 255, 0.46),
-            transparent 70%
-          ),
-          linear-gradient(
-            180deg,
-            #060b1c 0%,
-            #0b1638 42%,
-            #16307a 76%,
-            #2152a6 100%
-          );
+          linear-gradient(180deg, var(--bg), var(--bg-2) 60%, var(--surface));
       }
-      .hero .sky > .par-h {
-        position: absolute;
-        inset: 0;
+      /* the grid is clearest around the portrait and fades toward the edges */
+      .hero .grid {
+        -webkit-mask-image: radial-gradient(
+          115% 90% at 64% 40%,
+          #000 30%,
+          transparent 86%
+        );
+        mask-image: radial-gradient(
+          115% 90% at 64% 40%,
+          #000 30%,
+          transparent 86%
+        );
+      }
+      /* fine pointers only: a brighter copy of the grid shows through a soft circle under the cursor */
+      .hero .grid.lit {
+        display: none;
+        --grid-o: 0.34;
+        opacity: 0;
+        transition: opacity var(--dur-2);
+        -webkit-mask-image: radial-gradient(
+          240px circle at var(--px, -999px) var(--py, -999px),
+          #000,
+          transparent 72%
+        );
+        mask-image: radial-gradient(
+          240px circle at var(--px, -999px) var(--py, -999px),
+          #000,
+          transparent 72%
+        );
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .hero .grid.lit {
+          display: block;
+        }
+        .hero:hover .grid.lit {
+          opacity: 1;
+        }
+      }
+      /* narrow screens swap the traces for one quiet signal down the right-hand gutter */
+      .hero .rail {
+        display: none;
+        right: 5px;
+        top: calc(var(--nav-h) + 24px);
+        bottom: var(--bus-h);
       }
       .hero-grid {
         display: grid;
@@ -954,6 +888,84 @@
         gap: clamp(28px, 5vw, 72px);
         align-items: center;
         will-change: transform, opacity;
+      }
+      /* the request path at the foot of the hero: client → api → data, ending in the scroll cue */
+      .bus {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        height: var(--bus-h);
+        display: grid;
+        align-items: center;
+        pointer-events: none;
+      }
+      .bus-in {
+        --trace-o: 0.42;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .hub {
+        flex: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font: 500 0.72rem/1 var(--fm);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .hub::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        border: 1.5px solid rgb(var(--accent-rgb) / var(--node-o));
+        box-shadow: 0 0 0 4px rgb(var(--accent-rgb) / 0.1);
+      }
+      .to-cue {
+        display: none;
+      }
+      /* desktop only: the last stop on the path; fades as soon as you scroll */
+      .scroll-cue {
+        flex: none;
+        display: none;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgb(var(--bg-rgb) / 0.72);
+        border: 1px solid var(--line-2);
+        font: 500 0.78rem/1 var(--fm);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--text-2);
+        pointer-events: auto;
+        transition: color var(--dur-1);
+      }
+      .scroll-cue:hover {
+        color: var(--accent-2);
+      }
+      .scroll-cue .i {
+        width: 14px;
+        height: 14px;
+        rotate: 90deg;
+        animation: nudge 1.8s ease-in-out infinite;
+      }
+      @keyframes nudge {
+        50% {
+          translate: 0 4px;
+        }
+      }
+      @media (min-width: 1001px) and (min-height: 640px) {
+        .scroll-cue {
+          display: inline-flex;
+        }
+        .to-cue {
+          display: block;
+        }
       }
 
       .hero-copy {
@@ -967,9 +979,9 @@
         pointer-events: none;
         background: radial-gradient(
           closest-side,
-          rgba(6, 11, 28, 0.88),
-          rgba(6, 11, 28, 0.6) 60%,
-          rgba(6, 11, 28, 0)
+          rgb(var(--bg-rgb) / 0.88),
+          rgb(var(--bg-rgb) / 0.6) 60%,
+          rgb(var(--bg-rgb) / 0)
         );
       }
       .status {
@@ -979,8 +991,8 @@
         margin-bottom: 22px;
         padding: 8px 14px 8px 12px;
         border-radius: 999px;
-        background: rgba(61, 245, 200, 0.12);
-        border: 1px solid rgba(61, 245, 200, 0.4);
+        background: rgb(var(--accent-2-rgb) / 0.12);
+        border: 1px solid rgb(var(--accent-2-rgb) / 0.4);
         color: #c9fff0;
         font: 500 0.9rem/1.2 var(--fb);
       }
@@ -988,8 +1000,8 @@
         width: 9px;
         height: 9px;
         border-radius: 50%;
-        background: var(--mint);
-        box-shadow: 0 0 0 4px rgba(61, 245, 200, 0.25);
+        background: var(--accent-2);
+        box-shadow: 0 0 0 4px rgb(var(--accent-2-rgb) / 0.25);
       }
       h1 {
         font: 700 clamp(2.6rem, 5.6vw, 4.9rem)/1.02 var(--fd);
@@ -1003,46 +1015,58 @@
       .role {
         margin-top: 18px;
         font: 500 clamp(1rem, 1.6vw, 1.2rem)/1.4 var(--fm);
-        color: var(--cyan);
+        color: var(--accent);
       }
-      .role .sep {
-        color: var(--muted);
-        margin: 0 0.15em;
+      .role span {
+        display: block;
       }
-      .hero-lead {
-        margin-top: 18px;
-        max-width: 54ch;
-        font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+      .role .role-2 {
+        margin-top: 2px;
+        font-size: 0.9em;
         color: var(--text-2);
       }
+      /* the one sentence a visitor should remember */
+      .hero-lead {
+        margin-top: 20px;
+        max-width: 46ch;
+        font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+        line-height: 1.55;
+        color: var(--text);
+      }
+      .hero-meta {
+        margin-top: 14px;
+        font: 500 0.86rem/1.5 var(--fm);
+        letter-spacing: 0.03em;
+        color: var(--muted);
+      }
+      /* three tiers of action: one filled button, one outlined button, then plain links */
       .cta {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 30px;
+        margin-top: 28px;
       }
       .socials {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 26px;
+        gap: 4px 22px;
+        margin-top: 18px;
       }
       .socials a {
         display: inline-flex;
         align-items: center;
-        gap: 9px;
-        padding: 9px 14px;
-        border-radius: 10px;
-        border: 1px solid var(--line);
-        background: rgba(10, 17, 34, 0.6);
+        gap: 8px;
+        min-height: 44px;
         color: var(--text-2);
-        font: 500 0.92rem/1 var(--fb);
-        transition: 0.2s;
+        font: 500 0.94rem/1 var(--fb);
+        transition: color var(--dur-1);
       }
       .socials a:hover {
-        color: var(--text);
-        border-color: var(--cyan);
-        background: rgba(70, 200, 255, 0.12);
+        color: var(--accent-2);
+      }
+      .socials .i {
+        width: 18px;
+        height: 18px;
       }
 
       /* 3D stage: portrait with cards floating at different depths */
@@ -1054,24 +1078,6 @@
         display: grid;
         place-items: center;
       }
-      .orb {
-        position: absolute;
-        inset: 0;
-        margin: auto;
-        width: min(88%, 450px);
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle at 34% 28%,
-          #d8f2ff 0%,
-          #78bcff 24%,
-          #5b57f0 56%,
-          #2a1c82 84%
-        );
-        box-shadow:
-          0 0 90px 24px rgba(92, 112, 255, 0.5),
-          0 0 220px 70px rgba(61, 245, 200, 0.18);
-      }
       .stack {
         position: relative;
         width: min(100%, 460px);
@@ -1079,7 +1085,7 @@
         transform-style: preserve-3d;
         transform: rotateX(calc(4deg + var(--rx, 0deg)))
           rotateY(calc(-11deg + var(--ry, 0deg)));
-        transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+        transition: transform var(--dur-2) var(--ease);
       }
       .stack > * {
         position: absolute;
@@ -1091,7 +1097,7 @@
         aspect-ratio: 4/5;
         border-radius: 26px;
         border: 1px solid var(--line-2);
-        background: rgba(70, 200, 255, 0.08);
+        background: rgb(var(--accent-rgb) / 0.08);
         transform: translateZ(-70px);
       }
       .portrait {
@@ -1105,7 +1111,7 @@
         transform: translateZ(40px);
         box-shadow:
           0 40px 70px -24px rgba(0, 0, 0, 0.8),
-          0 0 60px -6px rgba(70, 200, 255, 0.55);
+          0 0 60px -8px var(--accent-glow);
       }
       .portrait img {
         display: block;
@@ -1114,7 +1120,7 @@
         border-radius: 23px;
         object-fit: cover;
         object-position: 50% 12%;
-        background: var(--card-2);
+        background: var(--surface-2);
       }
       .tag {
         display: flex;
@@ -1122,7 +1128,7 @@
         gap: 11px;
         padding: 11px 15px;
         border-radius: 14px;
-        background: rgba(11, 19, 40, 0.96);
+        background: rgb(var(--surface-rgb) / 0.96);
         border: 1px solid var(--line-2);
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8);
         font: 600 0.86rem/1.3 var(--fb);
@@ -1140,8 +1146,8 @@
         height: 34px;
         padding: 7px;
         border-radius: 9px;
-        background: rgba(61, 245, 200, 0.14);
-        color: var(--mint);
+        background: rgb(var(--accent-2-rgb) / 0.14);
+        color: var(--accent-2);
       }
       .tag-a {
         right: -10%;
@@ -1154,13 +1160,13 @@
         transform: translateZ(100px);
       }
       .tag-b .i {
-        background: rgba(70, 200, 255, 0.14);
-        color: var(--cyan);
+        background: rgb(var(--accent-rgb) / 0.14);
+        color: var(--accent);
       }
       .win {
         border-radius: 14px;
         overflow: hidden;
-        background: #0d1730;
+        background: var(--surface);
         border: 1px solid var(--line-2);
         box-shadow: 0 30px 60px -22px rgba(0, 0, 0, 0.85);
       }
@@ -1176,7 +1182,7 @@
         gap: 7px;
         height: 36px;
         padding: 0 14px;
-        background: #091126;
+        background: var(--bg-2);
         border-bottom: 1px solid var(--line);
         font: 500 0.74rem/1 var(--fm);
         color: var(--muted);
@@ -1244,8 +1250,9 @@
         align-items: center;
         padding: var(--nav-h) 0 0;
       }
+      /* how long the statement stays alone on screen before the first project arrives */
       .pin .work:not(.nopin) .stmt-gap {
-        height: 70vh;
+        height: 30vh;
       }
       .stmt-in {
         position: relative;
@@ -1261,7 +1268,7 @@
       .stmt-sub {
         margin-top: 26px;
         font: 500 clamp(0.95rem, 1.4vw, 1.1rem)/1.5 var(--fm);
-        color: var(--cyan);
+        color: var(--accent);
       }
       .cards {
         position: relative;
@@ -1273,26 +1280,80 @@
       .pcard {
         padding: clamp(22px, 4vw, 52px);
         border-radius: 28px;
-        background: var(--card);
+        background: var(--surface);
         border: 1px solid var(--line-2);
         box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.75);
       }
 
+      /* hierarchy: the featured project gets a full-width card with the screenshot
+         beside the text; the other two share a row, each with its visual on top */
       .proj {
         display: grid;
-        grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
-        gap: clamp(32px, 6vw, 80px);
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+        gap: clamp(32px, 5vw, 72px);
         align-items: center;
       }
-      .pcard:nth-of-type(even) .shot {
-        order: 2;
+      .pcard.feature {
+        position: relative;
+        border-color: rgb(var(--accent-2-rgb) / 0.42);
+      }
+      .pcard.feature::before {
+        content: "";
+        position: absolute;
+        left: 28px;
+        right: 28px;
+        top: -1px;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--grad);
+      }
+      .pcard.feature .proj-info h3 {
+        font-size: clamp(2rem, 3.8vw, 2.9rem);
+      }
+      /* featured card: the stack and the link sit under the screenshot on wide screens,
+         so the two columns come out a similar height; stacked, they follow the text */
+      .proj-foot {
+        margin-top: -18px;
+      }
+      @media (min-width: 1001px) {
+        .pcard.feature .proj {
+          grid-template-rows: auto 1fr;
+          row-gap: 48px;
+          align-items: start;
+        }
+        .pcard.feature .shot {
+          grid-area: 1 / 1;
+        }
+        .pcard.feature .proj-info {
+          grid-area: 1 / 2 / span 2;
+        }
+        .pcard.feature .proj-foot {
+          grid-area: 2 / 1;
+          margin-top: 0;
+        }
+      }
+      .pair {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(20px, 3vw, 32px);
+        align-items: start;
+      }
+      .pair .pcard {
+        padding: clamp(22px, 3vw, 36px);
+      }
+      .pair .proj {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .pair .proj-info h3 {
+        font-size: clamp(1.5rem, 2.4vw, 1.9rem);
       }
       .proj-no {
         margin-bottom: 10px;
         font: 500 0.84rem/1.3 var(--fm);
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--mint);
+        color: var(--accent-2);
       }
       .proj-no span {
         color: var(--text-2);
@@ -1301,29 +1362,60 @@
         font: 700 clamp(1.7rem, 3.2vw, 2.4rem)/1.1 var(--fd);
         letter-spacing: -0.02em;
       }
-      .proj-info > p:not(.proj-no) {
+      /* case study: who built it, what it is, what it does, what I did */
+      .proj-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
         margin-top: 14px;
+      }
+      .proj-meta li {
+        padding: 5px 11px;
+        border-radius: 999px;
+        border: 1px solid var(--line-2);
+        font: 500 0.8rem/1.3 var(--fm);
+        letter-spacing: 0.03em;
         color: var(--text-2);
       }
-      .bullets {
+      .proj-meta .feat {
+        border-color: rgb(var(--accent-2-rgb) / 0.55);
+        background: rgb(var(--accent-2-rgb) / 0.12);
+        color: #c9fff0;
+      }
+      .proj-lead {
         margin-top: 16px;
-        display: grid;
-        gap: 10px;
+        font-size: 1.08rem;
+        line-height: 1.6;
+        color: var(--text);
       }
-      .bullets li {
-        position: relative;
-        padding-left: 26px;
+      .proj-facts {
+        display: grid;
+        gap: 14px;
+        margin: 18px 0 0;
+      }
+      .proj-facts div {
+        padding-left: 14px;
+        border-left: 2px solid var(--line-2);
+      }
+      .proj-facts dt {
+        margin-bottom: 4px;
+        font: 500 0.78rem/1.3 var(--fm);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+      }
+      .proj-facts dd {
+        margin: 0;
+        font-size: 0.98rem;
+        line-height: 1.6;
         color: var(--text-2);
       }
-      .bullets li::before {
-        content: "";
-        position: absolute;
-        left: 2px;
-        top: 0.62em;
-        width: 10px;
-        height: 10px;
-        border-radius: 3px;
-        background: var(--grad);
+      /* "My part" is the answer a recruiter is looking for, so it reads strongest */
+      .proj-facts .mine {
+        border-left-color: var(--accent-2);
+      }
+      .proj-facts .mine dd {
+        color: var(--text);
       }
       .proj-info .chips {
         margin-top: 20px;
@@ -1348,21 +1440,24 @@
         transform-style: preserve-3d;
         transform: rotateX(calc(5deg + var(--rx, 0deg)))
           rotateY(calc(var(--by, -11deg) + var(--ry, 0deg)));
-        transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+        transition: transform var(--dur-2) var(--ease);
       }
-      .pcard:nth-of-type(even) .shot-in {
-        --by: 11deg;
+      .pair .shot-in {
+        --by: -7deg;
+      }
+      .pair .pcard:last-child .shot-in {
+        --by: 7deg;
       }
       .frame {
         position: absolute;
         inset: 0;
         border-radius: 16px;
         overflow: hidden;
-        background: #0c1528;
+        background: var(--surface);
         border: 1px solid var(--line-2);
         box-shadow:
           0 40px 80px -30px rgba(0, 0, 0, 0.85),
-          0 0 70px -12px rgba(70, 200, 255, 0.35);
+          0 0 60px -14px var(--accent-glow);
       }
       .canvas {
         position: absolute;
@@ -1382,7 +1477,7 @@
         padding: 0.75em 1em;
         border-radius: 0.9em;
         white-space: nowrap;
-        background: rgba(11, 19, 40, 0.96);
+        background: rgb(var(--surface-rgb) / 0.96);
         border: 1px solid var(--line-2);
         box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.8);
         font: 600 0.92em/1.3 var(--fb);
@@ -1397,7 +1492,7 @@
         box-shadow: 0 0 0 0.3em rgba(255, 109, 141, 0.25);
       }
       .pop .ok {
-        color: var(--mint);
+        color: var(--accent-2);
         font-weight: 700;
       }
       .pop-a {
@@ -1455,7 +1550,7 @@
       }
 
       .m-tix {
-        background: linear-gradient(160deg, #1c1650, #2b1e78);
+        background: linear-gradient(160deg, var(--surface), var(--surface-2));
       }
       .tix-bg {
         background: radial-gradient(
@@ -1464,61 +1559,53 @@
           )
           0 0/20px 20px;
       }
-      .posters {
+      /* TicketHub has no screenshot yet, so its visual is an honest illustration:
+         no browser chrome, no pretend interface, and it says "Illustration" */
+      .shot.art .shot-in {
+        aspect-ratio: 16/9.2;
+      }
+      .shot.art .canvas {
+        inset: 0;
+      }
+      .tiles {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 4%;
         align-content: center;
-        padding: 0 7%;
+        padding: 0 8%;
       }
-      .poster {
-        aspect-ratio: 3/3.7;
+      .tile {
+        aspect-ratio: 1/1.15;
+        display: grid;
+        place-items: end start;
         padding: 0.9em;
-        border-radius: 0.9em;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5em;
+        border-radius: 1em;
         box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.7);
-        overflow: hidden;
-      }
-      .poster:nth-child(1) {
-        background: linear-gradient(160deg, #8b5cf6, #ec4899);
-      }
-      .poster:nth-child(2) {
-        background: linear-gradient(160deg, #2563eb, #22d3ee);
-      }
-      .poster:nth-child(3) {
-        background: linear-gradient(160deg, #f59e0b, #ef4444);
-      }
-      .poster b {
-        margin-bottom: auto;
         font: 700 0.95em/1.2 var(--fd);
         color: #fff;
       }
-      .poster u,
-      .poster s {
-        display: block;
-        height: 0.45em;
-        border-radius: 0.3em;
-        background: rgba(255, 255, 255, 0.6);
+      .tile:nth-child(1) {
+        background: linear-gradient(160deg, #8b5cf6, #ec4899);
       }
-      .poster s {
-        width: 60%;
-        background: rgba(255, 255, 255, 0.35);
+      .tile:nth-child(2) {
+        background: linear-gradient(160deg, #2563eb, #22d3ee);
+        translate: 0 -8%;
       }
-      .poster em {
-        align-self: flex-start;
-        margin-top: 0.3em;
-        padding: 0.3em 0.8em;
-        border-radius: 99px;
-        background: rgba(4, 10, 24, 0.55);
-        font: 600 0.78em/1.2 var(--fb);
-        font-style: normal;
-        color: #fff;
+      .tile:nth-child(3) {
+        background: linear-gradient(160deg, #f59e0b, #ef4444);
+      }
+      .art-note {
+        position: absolute;
+        right: 1.1em;
+        top: 0.9em;
+        font: 500 0.72em/1 var(--fm);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
       }
       .ticket {
-        left: -6%;
-        bottom: 8%;
+        left: -5%;
+        bottom: 9%;
         flex-direction: column;
         align-items: flex-start;
         gap: 0.15em;
@@ -1545,6 +1632,76 @@
         font-size: 0.82em;
       }
 
+      /* a card "switches on" under the pointer, under keyboard focus, or (on touch screens,
+         where the script adds .on) while it crosses the middle of the screen */
+      .pcard {
+        transition:
+          border-color var(--dur-2),
+          box-shadow var(--dur-2);
+      }
+      .pcard:not(.feature)::before {
+        content: "";
+        position: absolute;
+        left: 28px;
+        right: 28px;
+        top: -1px;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--grad);
+        transform-origin: 0 50%;
+        scale: 0 1;
+        transition: scale var(--dur-3) var(--ease);
+      }
+      .shot.real img,
+      .tile {
+        transition:
+          scale var(--dur-3) var(--ease),
+          translate var(--dur-3) var(--ease);
+      }
+      .proj-no,
+      .pcard .chips li {
+        transition:
+          translate var(--dur-2) var(--ease),
+          border-color var(--dur-2),
+          background var(--dur-2);
+      }
+      .pcard:is(:hover, :focus-within, .on) {
+        border-color: rgb(var(--accent-rgb) / 0.6);
+      }
+      .pcard:is(:hover, :focus-within, .on)::before {
+        scale: 1 1;
+      }
+      .pcard:is(:hover, :focus-within, .on) .shot.real img {
+        scale: 1.035;
+      }
+      .pcard:is(:hover, :focus-within, .on) .tile {
+        translate: 0 -5%;
+      }
+      .pcard:is(:hover, :focus-within, .on) .tile:nth-child(2) {
+        translate: 0 -14%;
+      }
+      .pcard:is(:hover, :focus-within, .on) .proj-no {
+        translate: 4px 0;
+      }
+      /* the stack lights up one label after another */
+      .pcard:is(:hover, :focus-within, .on) .chips li {
+        border-color: rgb(var(--accent-rgb) / 0.75);
+        background: rgb(var(--accent-rgb) / 0.2);
+        transition-delay: calc(var(--n, 0) * 70ms);
+      }
+      .pcard .chips li:nth-child(2) {
+        --n: 1;
+      }
+      .pcard .chips li:nth-child(3) {
+        --n: 2;
+      }
+      .pcard .chips li:nth-child(4) {
+        --n: 3;
+      }
+      .pcard .chips li:nth-child(5) {
+        --n: 4;
+      }
+
       /* =====================================================================
    7. CONTENT SECTIONS  (solid backgrounds: this is where the reading happens)
    ===================================================================== */
@@ -1556,22 +1713,26 @@
       .sec.alt {
         background: var(--bg-2);
       }
+      /* the engineering grid shows at one corner and fades out before it reaches the reading column */
       .sec::before {
         content: "";
         position: absolute;
         inset: 0;
         pointer-events: none;
-        background:
-          radial-gradient(
-            50% 36% at 88% 0%,
-            rgba(70, 200, 255, 0.1),
-            transparent 70%
-          ),
-          radial-gradient(
-            46% 36% at 4% 100%,
-            rgba(165, 150, 255, 0.1),
-            transparent 70%
-          );
+        -webkit-mask-image: radial-gradient(
+          80% 70% at 100% 0%,
+          #000,
+          transparent 72%
+        );
+        mask-image: radial-gradient(80% 70% at 100% 0%, #000, transparent 72%);
+      }
+      .sec.alt::before {
+        -webkit-mask-image: radial-gradient(
+          80% 70% at 0% 100%,
+          #000,
+          transparent 72%
+        );
+        mask-image: radial-gradient(80% 70% at 0% 100%, #000, transparent 72%);
       }
       .sec > .wrap {
         position: relative;
@@ -1588,7 +1749,7 @@
         font: 500 0.84rem/1 var(--fm);
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: var(--mint);
+        color: var(--accent-2);
       }
       .kicker::before {
         content: "";
@@ -1610,6 +1771,19 @@
         font: 600 1.25rem/1.3 var(--fd);
         color: var(--text);
       }
+      /* typography: headings break into even lines; paragraphs avoid a lone last word */
+      h1,
+      h2,
+      h3,
+      .stmt-text,
+      .hero-lead,
+      .proj-lead {
+        text-wrap: balance;
+      }
+      p,
+      dd {
+        text-wrap: pretty;
+      }
       .lead {
         font-size: clamp(1.1rem, 1.5vw, 1.25rem);
         line-height: 1.65;
@@ -1618,7 +1792,7 @@
       .card {
         padding: clamp(22px, 3vw, 32px);
         border-radius: var(--r);
-        background: var(--card);
+        background: var(--surface);
         border: 1px solid var(--line);
       }
 
@@ -1635,17 +1809,16 @@
       .about-text p:not(.lead) {
         color: var(--text-2);
       }
+      /* quick facts: an open list with hairlines, not another set of boxes */
       .facts {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 0 32px;
         margin-top: 30px;
       }
       .facts li {
-        padding: 16px 18px;
-        border-radius: 14px;
-        background: var(--card);
-        border: 1px solid var(--line);
+        padding: 16px 0;
+        border-top: 1px solid var(--line);
       }
       .facts span {
         display: block;
@@ -1653,7 +1826,7 @@
         font: 500 0.82rem/1.2 var(--fm);
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: var(--mint);
+        color: var(--accent-2);
       }
       .facts b {
         font: 600 1rem/1.4 var(--fb);
@@ -1677,15 +1850,15 @@
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: var(--mint);
-        box-shadow: 0 0 0 4px rgba(61, 245, 200, 0.2);
+        background: var(--accent-2);
+        box-shadow: 0 0 0 4px rgb(var(--accent-2-rgb) / 0.2);
       }
       .when {
         display: block;
         margin-bottom: 4px;
         font: 500 0.86rem/1.3 var(--fm);
         letter-spacing: 0.06em;
-        color: var(--cyan);
+        color: var(--accent);
       }
       .timeline b {
         display: block;
@@ -1699,83 +1872,126 @@
         color: var(--text-2);
       }
 
-      /* skills */
+      /* skills: a table of rows (category on the left, skills on the right) */
+      /* skills. The first three rows are one request path (interface → API → data): a wire joins
+         their icons and a signal runs down it. The rows after that apply across the whole stack. */
       .skill-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+      .flow-note {
+        margin: 0 0 4px;
+        font: 500 0.78rem/1.4 var(--fm);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .skill-grid + .flow-note {
+        margin-top: clamp(30px, 4vw, 44px);
+      }
+      .flow .skill:not(:first-child) {
+        border-top: 0;
+      }
+      .flow .skill .i {
+        position: relative;
+        z-index: 1;
+        background: var(--surface-2);
+        box-shadow: 0 0 0 1px rgb(var(--accent-rgb) / 0.45);
+      }
+      /* from this row's icon down to the next row's icon, whatever the rows' heights */
+      .flow .skill:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 18.5px;
+        top: 42px;
+        width: 3px;
+        height: calc(100% + 20px);
+        background:
+          linear-gradient(180deg, transparent, var(--accent-2), transparent) 50% -80px /
+            3px 64px no-repeat,
+          linear-gradient(rgb(var(--accent-rgb) / var(--trace-o)) 0 0) 50% / 1px
+            100% no-repeat;
+        animation: drip var(--dur-signal) linear infinite;
+      }
+      .flow .skill:nth-of-type(2)::after {
+        animation-delay: calc(var(--dur-signal) * 0.45);
+      }
+      @keyframes drip {
+        45%,
+        100% {
+          background-position:
+            50% calc(100% + 80px),
+            50%;
+        }
+      }
+      .hop {
+        height: 20px;
+        padding-left: 44px;
+        font: 500 0.72rem/20px var(--fm);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .hop::before {
+        content: "↓ ";
+        color: var(--accent-2);
       }
       .skill {
-        transition:
-          transform 0.25s,
-          border-color 0.25s,
-          box-shadow 0.25s;
-      }
-      .skill:hover {
-        transform: translateY(-6px);
-        border-color: rgba(70, 200, 255, 0.6);
-        box-shadow:
-          var(--g-shine),
-          0 24px 50px -24px rgba(70, 200, 255, 0.55);
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+        gap: 14px 32px;
+        align-items: center;
+        padding: 22px 0;
+        border-top: 1px solid var(--line);
       }
       .skill-top {
         display: flex;
         align-items: center;
         gap: 14px;
-        margin-bottom: 18px;
       }
       .skill .i {
-        width: 44px;
-        height: 44px;
-        padding: 10px;
-        border-radius: 12px;
-        background: rgba(70, 200, 255, 0.13);
-        color: var(--cyan);
-      }
-      .skill:nth-child(even) .i {
-        background: rgba(61, 245, 200, 0.13);
-        color: var(--mint);
+        width: 40px;
+        height: 40px;
+        padding: 9px;
+        border-radius: 11px;
+        background: rgb(var(--accent-rgb) / 0.13);
+        color: var(--accent);
       }
 
-      /* achievements */
-      .ach-grid {
+      /* beyond the classroom: three open columns separated by hairlines */
+      .beyond {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
-      .ach {
-        display: flex;
-        flex-direction: column;
+      .beyond li {
+        display: grid;
+        align-content: start;
         gap: 10px;
-        transition:
-          transform 0.25s,
-          border-color 0.25s;
+        padding: 6px clamp(18px, 3vw, 36px);
+        border-left: 1px solid var(--line-2);
       }
-      .ach:hover {
-        transform: translateY(-6px);
-        border-color: rgba(61, 245, 200, 0.55);
+      .beyond li:first-child {
+        padding-left: 0;
+        border-left: 0;
       }
-      .ach .i {
-        width: 44px;
-        height: 44px;
-        padding: 10px;
-        border-radius: 12px;
-        background: rgba(61, 245, 200, 0.13);
-        color: var(--mint);
+      .beyond .i {
+        width: 26px;
+        height: 26px;
+        color: var(--accent-2);
       }
       .ach-tag {
         font: 500 0.82rem/1.2 var(--fm);
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: var(--mint);
+        color: var(--accent-2);
       }
-      .ach p {
+      .beyond p {
         font-size: 1rem;
         line-height: 1.6;
         color: var(--text-2);
       }
-      .ach a {
-        color: var(--cyan);
+      .beyond a {
+        color: var(--accent);
         text-decoration: underline;
         text-underline-offset: 3px;
       }
@@ -1798,84 +2014,113 @@
         top: calc(var(--k) * var(--amp) * -1);
         bottom: calc(var(--k) * var(--amp) * -1);
       }
-      .sky-a {
+      .band-bg {
+        --grid-o: 0.11;
         background:
           radial-gradient(
-            70% 55% at 50% 100%,
-            rgba(70, 200, 255, 0.6),
+            70% 60% at 50% 115%,
+            rgb(var(--accent-rgb) / 0.2),
             transparent 70%
           ),
-          radial-gradient(
-            55% 50% at 12% 22%,
-            rgba(165, 150, 255, 0.5),
-            transparent 70%
-          ),
-          linear-gradient(180deg, #0a1436 0%, #1a2f80 62%, #2456ab 100%);
-      }
-      .sky-b {
-        background:
-          radial-gradient(
-            60% 50% at 80% 100%,
-            rgba(61, 245, 200, 0.42),
-            transparent 70%
-          ),
-          radial-gradient(
-            60% 55% at 20% 30%,
-            rgba(165, 150, 255, 0.5),
-            transparent 70%
-          ),
-          linear-gradient(180deg, #080f2a 0%, #182a76 58%, #2459a8 100%);
+          linear-gradient(180deg, var(--bg-2), var(--surface));
       }
       .glass {
-        background: rgba(9, 15, 34, 0.93);
+        background: rgb(var(--surface-rgb) / 0.93);
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         border: 1px solid var(--line-2);
         border-radius: var(--r);
       }
-      .stats {
+      /* proof: competition results in large type, on one panel with dividers */
+      .proof {
+        padding: clamp(26px, 4vw, 48px);
+      }
+      .proof h2 {
+        max-width: none;
+      }
+      /* results sit on a checkpoint path: the line draws as the panel scrolls into view and each
+         node switches on when the line reaches it. The script sets --draw (0 to 1); without the
+         script, or with reduced motion, everything is simply lit. */
+      .results {
+        position: relative;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: clamp(24px, 4vw, 40px);
+        padding-top: 34px;
       }
-      .stat {
-        padding: clamp(22px, 3vw, 34px);
-        text-align: center;
+      .results::before,
+      .results::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 5px;
+        height: 1px;
+        background: var(--line-2);
       }
-      .stat b {
+      .results::after {
+        background: var(--grad);
+        transform-origin: 0 0;
+        scale: var(--draw, 1) 1;
+      }
+      .results li {
+        position: relative;
+        --lit: clamp(0, (var(--draw, 1) - var(--at, 0)) * 10, 1);
+        padding: 4px clamp(16px, 3vw, 36px);
+        border-left: 1px solid var(--line-2);
+      }
+      .results li:nth-child(2) {
+        --at: 0.34;
+      }
+      .results li:nth-child(3) {
+        --at: 0.67;
+      }
+      .results li:first-child {
+        padding-left: 0;
+        border-left: 0;
+      }
+      .results li::before,
+      .results li::after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        left: clamp(16px, 3vw, 36px);
+        top: -34px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--surface);
+        border: 1.5px solid var(--line-2);
+      }
+      .results li::after {
+        background: var(--accent-2);
+        border-color: var(--accent-2);
+        box-shadow: 0 0 0 4px rgb(var(--accent-2-rgb) / 0.18);
+        opacity: var(--lit);
+      }
+      .results li:first-child::before,
+      .results li:first-child::after {
+        left: 0;
+      }
+      .results b {
         display: block;
-        font: 700 clamp(3rem, 7vw, 5rem)/1 var(--fd);
+        font: 700 clamp(2.2rem, 5vw, 3.6rem)/1.05 var(--fd);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+        opacity: calc(0.35 + 0.65 * var(--lit));
       }
-      .stat span {
+      .results span {
         display: block;
         margin-top: 10px;
-        font: 500 1.02rem/1.4 var(--fb);
+        font: 600 1.05rem/1.4 var(--fb);
         color: var(--text);
       }
-      .stat small {
+      .results small {
         display: block;
-        margin-top: 4px;
-        font-size: 0.9rem;
+        margin-top: 3px;
+        font-size: 0.92rem;
         line-height: 1.45;
         color: var(--text-2);
-      }
-      .quote {
-        max-width: 820px;
-        margin-inline: auto;
-        padding: clamp(26px, 4vw, 44px);
-        text-align: center;
-      }
-      .quote p {
-        font: 600 clamp(1.4rem, 3vw, 2.2rem)/1.3 var(--fd);
-        letter-spacing: -0.01em;
-        color: var(--text);
-      }
-      .quote span {
-        display: block;
-        margin-top: 14px;
-        font: 500 0.9rem/1.4 var(--fm);
-        letter-spacing: 0.08em;
-        color: var(--mint);
       }
 
       /* contact: the card stays pinned while tech chips drift past behind it */
@@ -1883,6 +2128,8 @@
         position: relative;
         --bh: 900px;
         --amp: calc((var(--bh) + 100vh) / 2);
+        /* a full-screen scene with its own room for the nav: links land on its very top */
+        scroll-margin-top: calc(-1 * (var(--nav-h) + 12px));
       }
       .pin .contact:not(.nopin) {
         height: 190svh;
@@ -1897,43 +2144,32 @@
         display: grid;
         align-items: center;
         padding: calc(var(--nav-h) + 16px) 0 20px;
-        background: #070c1c;
+        background: var(--bg);
       }
       .pin .contact:not(.nopin) .contact-pin {
         position: sticky;
         top: 0;
         height: 100svh;
       }
-      .sky-c {
+      .contact .band-bg {
         background:
           radial-gradient(
-            60% 46% at 50% 78%,
-            rgba(165, 150, 255, 0.5),
-            transparent 70%
+            60% 50% at 50% 52%,
+            rgb(var(--accent-rgb) / 0.16),
+            transparent 72%
           ),
-          linear-gradient(
-            180deg,
-            #070c1c 0%,
-            #0d1a48 46%,
-            #1d3c92 80%,
-            #2a66b8 100%
-          );
+          linear-gradient(180deg, var(--bg), var(--bg-2));
       }
-      .sun {
-        position: absolute;
-        left: calc(50% - min(62vw, 520px));
-        top: 22%;
-        width: min(124vw, 1040px);
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background: linear-gradient(
-          180deg,
-          #c4f3ff 0%,
-          #6aa0ff 26%,
-          #8f6bff 60%,
-          #3a2a9a 100%
+      /* the end of the path: rings centred behind the card */
+      .endpoint {
+        width: min(170vw, 1180px);
+        border-color: rgb(var(--accent-rgb) / 0.26);
+        background: radial-gradient(
+          closest-side,
+          rgb(var(--accent-rgb) / 0.14),
+          rgb(var(--accent-rgb) / 0.04) 50%,
+          transparent 76%
         );
-        box-shadow: 0 0 160px 50px rgba(95, 147, 255, 0.5);
       }
       .float {
         position: absolute;
@@ -1949,15 +2185,15 @@
         padding: 0.7em 1.2em;
         border-radius: 999px;
         white-space: nowrap;
-        background: rgba(9, 16, 38, 0.82);
+        background: rgb(var(--surface-rgb) / 0.82);
         border: 1px solid var(--line-2);
-        box-shadow: 0 0 34px -6px rgba(70, 200, 255, 0.7);
+        box-shadow: 0 0 30px -8px var(--accent-glow);
         font: 600 var(--s, 1rem)/1 var(--fd);
         color: #e3f5ff;
       }
       .fchip:nth-child(3n) {
-        border-color: rgba(61, 245, 200, 0.5);
-        box-shadow: 0 0 34px -6px rgba(61, 245, 200, 0.7);
+        border-color: rgb(var(--accent-2-rgb) / 0.5);
+        box-shadow: 0 0 30px -8px rgb(var(--accent-2-rgb) / 0.3);
         color: #d6fff4;
       }
       .contact-card {
@@ -2018,7 +2254,12 @@
         gap: 9px;
       }
       .contact-list .i {
-        color: var(--mint);
+        color: var(--accent-2);
+      }
+      .contact-list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px; /* comfortable tap target */
       }
       .contact-card .socials {
         justify-content: center;
@@ -2027,7 +2268,7 @@
       .foot {
         position: relative;
         padding: 26px 0;
-        background: #070c1a;
+        background: var(--bg);
         border-top: 1px solid var(--line);
         color: var(--muted);
         font-size: 0.94rem;
@@ -2039,16 +2280,23 @@
         align-items: center;
         gap: 8px 24px;
       }
-      .to-top {
+      .to-top,
+      .foot-link {
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        min-height: 44px; /* comfortable tap target */
         color: var(--text-2);
         font-weight: 500;
-        transition: color 0.2s;
+        transition: color var(--dur-1);
       }
-      .to-top:hover {
-        color: var(--mint);
+      .to-top:hover,
+      .foot-link:hover {
+        color: var(--accent-2);
+      }
+      .foot-link .i {
+        width: 16px;
+        height: 16px;
       }
       .to-top .i {
         width: 16px;
@@ -2061,14 +2309,9 @@
               Tints stay dark enough that text contrast is as high as on solid cards.)
    ===================================================================== */
       :root {
-        --g-tint: rgba(20, 33, 68, 0.5); /* cards on dark sections */
-        --g-tint-strong: rgba(
-          10,
-          18,
-          40,
-          0.72
-        ); /* panels that sit over bright scenery or other content */
-        --g-edge: rgba(196, 220, 255, 0.24);
+        --g-tint: rgb(var(--surface-rgb) / 0.56); /* cards on dark sections */
+        --g-tint-strong: rgb(var(--surface-rgb) / 0.72); /* panels that sit over bright scenery or other content */
+        --g-edge: rgb(var(--edge-rgb) / 0.3);
         --g-sheen: linear-gradient(
           135deg,
           rgba(255, 255, 255, 0.14) 0%,
@@ -2078,14 +2321,14 @@
         --g-shine:
           inset 0 1px 0 rgba(255, 255, 255, 0.26),
           inset 0 -1px 0 rgba(255, 255, 255, 0.05);
-        --g-blur: blur(18px) saturate(170%);
+        --g-blur: blur(var(--blur)) saturate(150%);
       }
+      /* blur is kept for the large surfaces only: small or moving pieces (buttons,
+         pop-up labels, drifting chips) stay solid, which is far cheaper to render */
       .card,
-      .facts li,
       .pcard,
       .glass,
       .tag,
-      .pop:not(.ticket),
       .win {
         background: var(--g-sheen), var(--g-tint);
         border: 1px solid var(--g-edge);
@@ -2094,21 +2337,22 @@
       }
       .pcard,
       .glass,
-      .tag,
-      .pop:not(.ticket) {
+      .tag {
         background: var(--g-sheen), var(--g-tint-strong);
       }
+      .pop:not(.ticket) {
+        border-color: var(--g-edge);
+      }
       .win {
-        background: var(--g-sheen), rgba(10, 18, 40, 0.84);
+        background: var(--g-sheen), rgb(var(--surface-rgb) / 0.84);
       }
       .contact-card.glass {
-        background: var(--g-sheen), rgba(10, 18, 40, 0.82);
-      } /* sits on the bright sun, so it needs a deeper tint */
+        background: var(--g-sheen), rgb(var(--surface-rgb) / 0.82);
+      } /* chips drift behind it, so it needs a deeper tint */
       .win-bar {
-        background: rgba(6, 11, 26, 0.5);
+        background: rgb(var(--bg-rgb) / 0.5);
       }
-      .card,
-      .facts li {
+      .card {
         box-shadow:
           var(--g-shine),
           0 24px 60px -30px rgba(0, 0, 0, 0.8);
@@ -2135,16 +2379,14 @@
           0 30px 60px -22px rgba(0, 0, 0, 0.85);
       }
       .btn.ghost,
-      .socials a,
       .status {
-        -webkit-backdrop-filter: blur(12px) saturate(160%);
-        backdrop-filter: blur(12px) saturate(160%);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
       }
+      .btn.ghost {
+        background-color: rgb(var(--surface-rgb) / 0.8);
+      }
       .fchip {
-        background: var(--g-sheen), rgba(12, 22, 48, 0.62);
-        -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
+        background: var(--g-sheen), rgb(var(--surface-rgb) / 0.86);
       }
       .work {
         box-shadow:
@@ -2155,7 +2397,6 @@
 
       /* a soft highlight that follows the pointer across a glass surface */
       .card,
-      .facts li,
       .pcard,
       .glass {
         position: relative;
@@ -2169,7 +2410,7 @@
         border-radius: inherit;
         pointer-events: none;
         opacity: 0;
-        transition: opacity 0.35s;
+        transition: opacity var(--dur-2);
         background: radial-gradient(
           380px circle at var(--gx, 50%) var(--gy, 50%),
           rgba(255, 255, 255, 0.15),
@@ -2184,7 +2425,7 @@
         }
       }
 
-      /* colour glowing behind the glass */
+      /* ambient light behind the glass: one blue, one teal, both faint */
       .aura {
         position: absolute;
         inset: 0;
@@ -2194,6 +2435,7 @@
         pointer-events: none;
       }
       .aura i {
+        --c: rgb(var(--accent-rgb) / 0.19);
         position: absolute;
         left: var(--x);
         top: var(--y);
@@ -2203,8 +2445,20 @@
         border-radius: 50%;
         background: radial-gradient(circle, var(--c) 0%, transparent 68%);
       }
+      .aura i.t {
+        --c: rgb(var(--accent-2-rgb) / 0.12);
+      }
       .aura .drift {
-        animation: drift 18s ease-in-out var(--dl, 0s) infinite alternate;
+        animation: drift var(--dur-amb) ease-in-out var(--dl, 0s) infinite
+          alternate;
+      }
+      .stmt-pin .grid {
+        -webkit-mask-image: radial-gradient(
+          75% 65% at 86% 18%,
+          #000,
+          transparent 74%
+        );
+        mask-image: radial-gradient(75% 65% at 86% 18%, #000, transparent 74%);
       }
       @keyframes drift {
         from {
@@ -2225,24 +2479,24 @@
         .card,
         .facts li,
         .pcard {
-          background: var(--card);
+          background: var(--surface);
         }
         .glass,
         .tag,
         .pop:not(.ticket),
         .win,
         .fchip {
-          background: rgba(9, 15, 34, 0.96);
+          background: rgb(var(--surface-rgb) / 0.96);
         }
         .nav {
-          background: rgba(10, 17, 34, 0.96);
+          background: rgb(var(--bg-rgb) / 0.96);
         }
       }
       @media (prefers-reduced-transparency: reduce) {
         .card,
         .facts li,
         .pcard {
-          background: var(--card);
+          background: var(--surface);
           -webkit-backdrop-filter: none;
           backdrop-filter: none;
         }
@@ -2252,7 +2506,7 @@
         .win,
         .fchip,
         .nav {
-          background: rgba(9, 15, 34, 0.97);
+          background: rgb(var(--surface-rgb) / 0.97);
           -webkit-backdrop-filter: none;
           backdrop-filter: none;
         }
@@ -2271,7 +2525,6 @@
       }
       .rl {
         display: inline-block;
-        will-change: transform;
       }
       /* cards fade up as they enter: pure CSS, tied to scroll, fully visible 140px after entering */
       @keyframes rise {
@@ -2306,16 +2559,62 @@
           grid-template-columns: 1fr;
           gap: 40px;
         }
-        .pcard:nth-of-type(even) .shot {
-          order: 0;
+        .pair {
+          grid-template-columns: 1fr;
         }
         .shot {
           width: min(100%, 640px);
           margin-inline: auto;
         }
-        .skill-grid,
-        .ach-grid {
-          grid-template-columns: repeat(2, 1fr);
+        /* the traces need room; narrow screens get the single rail instead */
+        .hero .net {
+          display: none;
+        }
+        .hero .rail {
+          display: block;
+        }
+        /* three columns become stacked rows; the dividers turn from vertical to horizontal */
+        .results,
+        .beyond {
+          grid-template-columns: 1fr;
+        }
+        .results li,
+        .beyond li,
+        .results li:first-child,
+        .beyond li:first-child {
+          padding: 20px 0;
+          border-left: 0;
+          border-top: 1px solid var(--line-2);
+        }
+        .results li:first-child,
+        .beyond li:first-child {
+          border-top: 0;
+          padding-top: 0;
+        }
+        .results {
+          padding: 0 0 0 30px;
+        }
+        .results::before,
+        .results::after {
+          left: 5px;
+          right: auto;
+          top: 12px;
+          bottom: 12px;
+          width: 1px;
+          height: auto;
+        }
+        .results::after {
+          scale: 1 var(--draw, 1);
+        }
+        .results li::before,
+        .results li::after {
+          left: -30px;
+          top: 33px;
+        }
+        .results li:first-child::before,
+        .results li:first-child::after {
+          left: -30px;
+          top: 13px;
         }
         .contact-pin {
           align-items: end;
@@ -2325,20 +2624,8 @@
           display: none;
         }
       }
-      /* the full-name badge is wide: tighten the menu so both fit on small tablets */
-      @media (max-width: 800px) {
-        .nav-links {
-          gap: 0;
-        }
-        .nav-links a {
-          padding: 9px 9px;
-        }
-        .nav-links a.nav-cta {
-          margin-left: 6px;
-          padding-inline: 12px;
-        }
-      }
-      @media (max-width: 700px) {
+      /* tablets and phones: the menu collapses behind a button (the name badge plus six links need about 900px) */
+      @media (max-width: 900px) {
         .nav-burger {
           display: grid;
         }
@@ -2354,12 +2641,12 @@
           padding: 10px;
           border-radius: 18px;
           border: 1px solid var(--g-edge);
-          background: var(--g-sheen), #0c1530;
+          background: var(--g-sheen), var(--surface);
           box-shadow:
             var(--g-shine),
             0 24px 50px -20px rgba(0, 0, 0, 0.9);
         }
-        .nav-toggle:checked ~ .nav-links {
+        .nav-burger[aria-expanded="true"] + .nav-links {
           display: flex;
         }
         .nav-links a {
@@ -2370,23 +2657,63 @@
           margin: 6px 0 0;
           text-align: center;
         }
+        /* without JavaScript the button cannot open anything, so the links show as one scrollable row */
+        .no-js .nav-burger {
+          display: none;
+        }
+        .no-js .nav-links {
+          display: flex;
+          flex-direction: row;
+          overflow-x: auto;
+          padding: 6px;
+        }
+        .no-js .nav-links a {
+          flex: none;
+          padding: 10px 12px;
+        }
+        .no-js .nav-links a.nav-cta {
+          margin: 0;
+        }
+      }
+      @media (max-width: 700px) {
+        /* phones: tighter labels on the request path, and room beside the skills wire */
+        .bus-in {
+          gap: 10px;
+        }
+        .hub {
+          gap: 8px;
+          font-size: 0.66rem;
+        }
+        .flow .chips {
+          padding-left: 54px;
+        }
         .work {
           border-radius: 22px 22px 0 0;
         }
         .pcard {
           border-radius: 20px;
         }
-        .stats {
+        .pcard.feature::before {
+          left: 20px;
+          right: 20px;
+        }
+        .skill {
           grid-template-columns: 1fr;
         }
-        .skill-grid,
-        .ach-grid {
-          grid-template-columns: 1fr;
+        /* the statement holds for less time on a phone, so the first project arrives sooner */
+        .pin .work:not(.nopin) .stmt-gap {
+          height: 16vh;
         }
-        /* phones: portrait on top, tags across the shoulders, code window underneath */
+        /* both hero buttons share one row */
+        .cta .btn {
+          flex: 1 1 auto;
+          padding-inline: 16px;
+        }
+        /* phones: portrait with the two tags across the shoulders; the decorative
+           code window is dropped so the hero is shorter and the work comes sooner */
         .stack {
-          width: min(100%, 360px);
-          aspect-ratio: 1/1.5;
+          width: min(100%, 340px);
+          aspect-ratio: 1/1.02;
           transform: rotateX(calc(3deg + var(--rx, 0deg)))
             rotateY(calc(-6deg + var(--ry, 0deg)));
         }
@@ -2415,17 +2742,14 @@
         }
         .tag-b {
           left: 0;
-          top: 41%;
+          top: 58%;
         }
         .tag-a {
           right: 0;
-          top: 53%;
+          top: 76%;
         }
         .editor {
-          left: 3%;
-          right: 3%;
-          width: auto;
-          bottom: 0;
+          display: none;
         }
         .pop-a,
         .pop-d,
@@ -2435,6 +2759,12 @@
         .pop-b,
         .pop-c {
           right: 5%;
+        }
+        /* top corner, clear of the tile labels along the bottom */
+        .ticket {
+          left: -2%;
+          top: 7%;
+          bottom: auto;
         }
         .shot.real .pop-a,
         .shot.real .pop-d {
@@ -2447,10 +2777,20 @@
         .fchip {
           font-size: 0.85rem;
         }
+        /* keep "Copy email" and "View CV" on one line so the card stays short enough to pin */
+        .contact-actions .btn.ghost {
+          padding-inline: 16px;
+        }
       }
       @media (max-width: 440px) {
         .facts {
           grid-template-columns: 1fr;
+        }
+        /* four links do not fit one row here; two tidy rows instead of three and an orphan */
+        .hero .socials {
+          display: grid;
+          grid-template-columns: repeat(2, max-content);
+          column-gap: 30px;
         }
       }
       @media (max-height: 820px) {
@@ -2504,6 +2844,11 @@
         </symbol>
         <symbol id="i-ext" viewBox="0 0 24 24">
           <path d="M7 17L17 7M9 7h8v8" />
+        </symbol>
+        <symbol id="i-doc" viewBox="0 0 24 24">
+          <path
+            d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h6"
+          />
         </symbol>
         <symbol id="i-mail" viewBox="0 0 24 24">
           <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -2566,9 +2911,6 @@
           <circle cx="12" cy="9" r="5" />
           <path d="M9 13.5L8 21l4-2 4 2-1-7.5" />
         </symbol>
-        <symbol id="i-flag" viewBox="0 0 24 24">
-          <path d="M5 21V4M5 4h12l-2.5 4L17 12H5" />
-        </symbol>
         <symbol id="i-github" viewBox="0 0 24 24">
           <path
             d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.25.8-.56v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.2-1.3-5.2-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.2 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"
@@ -2596,20 +2938,23 @@
           aria-label="Renujaan Ravichandran, back to top"
           ><span class="brand-mark">Renujaan Ravichandran</span></a
         >
-        <input
-          type="checkbox"
+        <button
+          class="nav-burger"
           id="nav-toggle"
-          class="nav-toggle"
-          aria-label="Open menu"
-        />
-        <label for="nav-toggle" class="nav-burger" aria-hidden="true"
-          ><span></span
-        ></label>
-        <nav class="nav-links" aria-label="Primary">
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span class="sr">Menu</span><span class="bars" aria-hidden="true"></span>
+        </button>
+        <nav class="nav-links" id="nav-links" aria-label="Primary">
           <a href="#projects">Projects</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
           <a href="#achievements">Achievements</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="assets/documents/Renujaan_Ravichandran_Software_Engineer_Intern_CV2_V2.pdf" target="_blank" rel="noopener" type="application/pdf"
+            >CV<span class="sr"> (opens in a new tab)</span></a
+          >
           <a href="#contact" class="nav-cta">Contact</a>
         </nav>
       </div>
@@ -2620,104 +2965,64 @@
       <div class="act">
         <section class="hero scene" id="home">
           <div class="sky" aria-hidden="true">
-            <div class="par-h" style="--k: 0.9">
-              <div class="stars a"></div>
+            <!-- BACKGROUND VIDEO (optional). Nothing loads while data-src is empty.
+                 To switch it on: add assets/video/tech-background.mp4, then set
+                 data-src="assets/video/tech-background.mp4" and, ideally,
+                 data-poster="assets/video/tech-background.jpg" (a still frame).
+                 The README says what kind of clip works. -->
+            <div class="vid" data-src="" data-poster=""></div>
+            <div class="aura">
+              <i class="drift" style="--x: 78%; --y: 30%; --d: min(70vw, 760px)"></i>
+              <i class="drift t" style="--x: 12%; --y: 94%; --d: min(60vw, 600px); --dl: -7s"></i>
             </div>
-            <div class="par-h" style="--k: 0.78">
-              <div class="stars b"></div>
+            <div class="par-x depth" style="--k: 0.18; --m: -6px">
+              <div class="grid"></div>
+              <div class="grid lit"></div>
             </div>
-            <div class="par-h sparkles" style="--k: 0.68">
-              <i class="sp" style="--x: 6%; --y: 16%; --z: 16px; --d: 3.4s"></i>
-              <i
-                class="sp"
-                style="
-                  --x: 17%;
-                  --y: 62%;
-                  --z: 12px;
-                  --d: 2.8s;
-                  --dl: -1.2s;
-                  --c: #b9a8ff;
-                "
-              ></i>
-              <i
-                class="sp"
-                style="--x: 29%; --y: 9%; --z: 22px; --d: 4s; --dl: -2s"
-              ></i>
-              <i
-                class="sp"
-                style="
-                  --x: 41%;
-                  --y: 33%;
-                  --z: 12px;
-                  --d: 3s;
-                  --dl: -0.6s;
-                  --c: #86f5d4;
-                "
-              ></i>
-              <i
-                class="sp"
-                style="--x: 48%; --y: 70%; --z: 18px; --d: 3.6s; --dl: -1.6s"
-              ></i>
-              <i
-                class="sp"
-                style="
-                  --x: 57%;
-                  --y: 13%;
-                  --z: 14px;
-                  --d: 2.6s;
-                  --dl: -0.9s;
-                  --c: #b9a8ff;
-                "
-              ></i>
-              <i
-                class="sp"
-                style="--x: 66%; --y: 52%; --z: 12px; --d: 3.2s; --dl: -2.4s"
-              ></i>
-              <i
-                class="sp"
-                style="
-                  --x: 74%;
-                  --y: 7%;
-                  --z: 24px;
-                  --d: 4.2s;
-                  --dl: -0.3s;
-                  --c: #86f5d4;
-                "
-              ></i>
-              <i
-                class="sp"
-                style="--x: 83%; --y: 26%; --z: 14px; --d: 3s; --dl: -1.8s"
-              ></i>
-              <i
-                class="sp"
-                style="
-                  --x: 91%;
-                  --y: 58%;
-                  --z: 18px;
-                  --d: 3.8s;
-                  --dl: -0.7s;
-                  --c: #b9a8ff;
-                "
-              ></i>
-              <i
-                class="sp"
-                style="--x: 95%; --y: 12%; --z: 12px; --d: 2.9s; --dl: -2.2s"
-              ></i>
-              <i
-                class="sp"
-                style="
-                  --x: 12%;
-                  --y: 38%;
-                  --z: 10px;
-                  --d: 2.5s;
-                  --dl: -1s;
-                  --c: #86f5d4;
-                "
-              ></i>
+            <div class="par-x depth" style="--k: 0.42; --m: -16px">
+              <!-- circuit traces: each path is drawn once as a line and once as a travelling signal -->
+              <svg class="net" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <path d="M1440 236H1352L1316 272V372" />
+                <path d="M1440 610H1376L1340 574V470" />
+                <path d="M1104 0V88L1140 124H1262" />
+                <path d="M746 0V168L770 192V316" />
+                <path d="M28 0V396" />
+                <path d="M1440 760H1210L1180 730H1090" />
+                <path class="sig" pathLength="1000" d="M1440 236H1352L1316 272V372" />
+                <path class="sig" pathLength="1000" style="--t: 9s; --dl: -3s" d="M1440 610H1376L1340 574V470" />
+                <path class="sig" pathLength="1000" style="--t: 8s; --dl: -5s" d="M1104 0V88L1140 124H1262" />
+                <path class="sig" pathLength="1000" style="--t: 10s; --dl: -2s" d="M746 0V168L770 192V316" />
+                <path class="sig" pathLength="1000" style="--t: 11s; --dl: -6s" d="M28 0V396" />
+                <path class="sig" pathLength="1000" style="--t: 9s; --dl: -1s" d="M1440 760H1210L1180 730H1090" />
+                <circle class="ping" cx="1316" cy="372" r="4" />
+                <circle class="ping" style="--dl: -2.5s" cx="770" cy="316" r="4" />
+                <circle cx="1316" cy="372" r="4" />
+                <circle cx="1340" cy="470" r="4" />
+                <circle cx="1262" cy="124" r="4" />
+                <circle cx="770" cy="316" r="4" />
+                <circle cx="28" cy="396" r="4" />
+                <circle cx="1090" cy="730" r="4" />
+                <circle class="dot" cx="1352" cy="236" r="2.5" />
+                <circle class="dot" cx="1140" cy="124" r="2.5" />
+                <circle class="dot" cx="1210" cy="760" r="2.5" />
+              </svg>
             </div>
-            <div class="par-x city far" style="--k: 0.56; --m: -8px"></div>
-            <div class="par-x city mid" style="--k: 0.32; --m: -16px"></div>
-            <div class="par-x city near" style="--k: 0.1; --m: -28px"></div>
+            <div class="rail"><i></i></div>
+          </div>
+
+          <!-- the request path: client → api → data, then on down the page -->
+          <div class="bus">
+            <div class="wrap bus-in">
+              <span class="hub" aria-hidden="true">client</span>
+              <span class="wire" aria-hidden="true"><i></i></span>
+              <span class="hub" aria-hidden="true">api</span>
+              <span class="wire" aria-hidden="true"><i style="--dl: calc(var(--dur-signal) / 3)"></i></span>
+              <span class="hub" aria-hidden="true">data</span>
+              <span class="wire to-cue" aria-hidden="true"><i style="--dl: calc(var(--dur-signal) * 2 / 3)"></i></span>
+              <a class="scroll-cue" href="#work"
+                >Scroll <svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg
+              ></a>
+            </div>
           </div>
 
           <div class="wrap hero-grid">
@@ -2725,52 +3030,62 @@
               <p class="status"><i></i>Open to Software Engineer internships</p>
               <h1>Renujaan <span class="grad">Ravichandran</span></h1>
               <p class="role">
-                <span class="nw">Software Engineer Intern</span>
-                <span class="sep">/</span>
-                <span class="nw">Full-Stack Developer</span>
+                <span>Software Engineering Undergraduate</span>
+                <span class="role-2">Full-Stack Developer · React, Node.js, MySQL</span>
               </p>
               <p class="hero-lead">
-                Software Engineering undergraduate at Sabaragamuwa University of
-                Sri Lanka. I design and build full-stack web applications with
-                React, Node.js, Express, PHP and MySQL.
+                I turn real problems into working web applications. So far: a
+                disaster-response platform built with a team, an event booking
+                site, and a GPA calculator for my own faculty.
               </p>
+              <p class="hero-meta">
+                Sabaragamuwa University of Sri Lanka · Graduating June 2028
+              </p>
+              <!-- CURRENTLY (optional): if you want a "currently learning / building" line,
+                   add one short sentence here, for example:
+                   <p class="hero-meta">Currently learning: ...</p>
+                   It was left out because nothing in the CV or repositories says what it is. -->
               <div class="cta">
                 <a class="btn primary" href="#projects"
                   >View my projects <svg class="i"><use href="#i-arrow" /></svg
                 ></a>
-                <a class="btn ghost" href="#contact">Get in touch</a>
+                <a
+                  class="btn ghost"
+                  href="assets/documents/Renujaan_Ravichandran_Software_Engineer_Intern_CV2_V2.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  type="application/pdf"
+                  ><svg class="i"><use href="#i-doc" /></svg>View CV<span class="sr"> (opens in a new tab)</span></a
+                >
               </div>
               <ul class="socials">
                 <li>
-                  <a
-                    href="https://github.com/RJ-4803"
-                    target="_blank"
-                    rel="noopener"
-                    ><svg class="i fill"><use href="#i-github" /></svg>GitHub</a
+                  <a href="https://github.com/RJ-4803" target="_blank" rel="noopener"
+                    ><svg class="i fill"><use href="#i-github" /></svg>GitHub<span class="sr"> (opens in a new tab)</span></a
                   >
                 </li>
                 <li>
-                  <a
-                    href="https://www.linkedin.com/in/renujaan"
-                    target="_blank"
-                    rel="noopener"
-                    ><svg class="i fill"><use href="#i-linkedin" /></svg
-                    >LinkedIn</a
+                  <a href="https://www.linkedin.com/in/renujaan" target="_blank" rel="noopener"
+                    ><svg class="i fill"><use href="#i-linkedin" /></svg>LinkedIn<span class="sr"> (opens in a new tab)</span></a
                   >
                 </li>
                 <li>
-                  <a
-                    href="https://medium.com/@renujaanravichandran"
-                    target="_blank"
-                    rel="noopener"
-                    ><svg class="i fill"><use href="#i-medium" /></svg>Medium</a
+                  <a href="https://medium.com/@renujaanravichandran" target="_blank" rel="noopener"
+                    ><svg class="i fill"><use href="#i-medium" /></svg>Medium<span class="sr"> (opens in a new tab)</span></a
                   >
+                </li>
+                <li>
+                  <a href="#contact"><svg class="i"><use href="#i-mail" /></svg>Contact</a>
                 </li>
               </ul>
             </div>
 
             <div class="stage" data-pv>
-              <div class="orb par-v" style="--k: 0.5" aria-hidden="true"></div>
+              <div class="rings par-v" style="--k: 0.5" aria-hidden="true">
+                <i style="--x: 93.3%; --y: 25%"></i>
+                <i class="live" style="--x: 3%; --y: 67%"></i>
+                <i style="--x: 37.3%; --y: 15.2%"></i>
+              </div>
               <div class="stack" id="stack">
                 <div
                   class="back par-v"
@@ -2780,6 +3095,7 @@
                 <div class="portrait">
                   <img
                     src="assets/img/profile.jpg"
+                      fetchpriority="high"
                     alt="Portrait of Renujaan Ravichandran"
                     width="800"
                     height="800"
@@ -2791,11 +3107,7 @@
                   aria-hidden="true"
                 >
                   <svg class="i"><use href="#i-code" /></svg
-                  ><span
-                    >Full-Stack Developer<small
-                      >React · Node.js · MySQL</small
-                    ></span
-                  >
+                  ><span>ResQLink<small>Featured project</small></span>
                 </div>
                 <div
                   class="win editor par-v"
@@ -2809,7 +3121,7 @@
                     class="code"
                   ><span class="k">const</span> <span class="p">developer</span> = {
   <span class="p">name</span>: <span class="s">"Renujaan Ravichandran"</span>,
-  <span class="p">role</span>: <span class="s">"Software Engineer Intern"</span>,
+  <span class="p">role</span>: <span class="s">"Full-Stack Developer"</span>,
   <span class="p">stack</span>: [<span class="s">"React"</span>, <span class="s">"Node"</span>, <span class="s">"MySQL"</span>],
   <span class="p">openToWork</span>: <span class="n">true</span>,
 };</pre>
@@ -2833,35 +3145,9 @@
           <!-- pinned statement: its letters light up as you scroll -->
           <div class="stmt-pin">
             <div class="aura" aria-hidden="true">
-              <i
-                class="drift"
-                style="
-                  --x: 84%;
-                  --y: 22%;
-                  --d: min(64vw, 580px);
-                  --c: rgba(70, 200, 255, 0.34);
-                "
-              ></i>
-              <i
-                class="drift"
-                style="
-                  --x: 10%;
-                  --y: 80%;
-                  --d: min(60vw, 540px);
-                  --c: rgba(165, 150, 255, 0.36);
-                  --dl: -6s;
-                "
-              ></i>
-              <i
-                class="drift"
-                style="
-                  --x: 62%;
-                  --y: 92%;
-                  --d: min(46vw, 400px);
-                  --c: rgba(61, 245, 200, 0.24);
-                  --dl: -11s;
-                "
-              ></i>
+              <div class="grid"></div>
+              <i class="drift" style="--x: 84%; --y: 22%; --d: min(64vw, 580px)"></i>
+              <i class="drift t" style="--x: 10%; --y: 82%; --d: min(60vw, 540px); --dl: -6s"></i>
             </div>
             <div class="wrap stmt-in">
               <p class="kicker">What I do</p>
@@ -2878,60 +3164,53 @@
 
           <!-- project cards slide up over the pinned statement -->
           <div class="wrap cards" id="projects">
-            <article class="pcard">
+            <h2 class="sr">Projects</h2>
+            <article class="pcard feature">
               <div class="proj">
                 <div class="shot real" data-pv data-tilt>
                   <div class="shot-in">
                     <div class="frame">
                       <div class="win-bar" aria-hidden="true">
-                        <i></i><i></i><i></i
-                        ><span>ResQLink · volunteer dashboard</span>
+                        <i></i><i></i><i></i><span>ResQLink · volunteer dashboard</span>
                       </div>
                       <div class="canvas">
-                        <img
-                          src="assets/img/project-resqlink.png"
-                          width="1919"
-                          height="977"
-                          loading="lazy"
-                          alt="ResQLink volunteer dashboard with availability status, active assignments, recent alerts and task counters"
-                        />
+                        <img src="assets/img/project-resqlink.png" width="1919" height="977" loading="lazy" alt="ResQLink volunteer dashboard with availability status, active assignments, recent alerts and task counters" />
                       </div>
                     </div>
-                    <div
-                      class="pop pop-c par-v"
-                      style="--k: -0.6"
-                      aria-hidden="true"
-                    >
-                      <i class="dot"></i>Incident reporting
-                    </div>
-                    <div
-                      class="pop pop-d par-v"
-                      style="--k: -1"
-                      aria-hidden="true"
-                    >
-                      <span class="ok">✓</span>Volunteer coordination
-                    </div>
+                    <div class="pop pop-c par-v" style="--k: -0.6" aria-hidden="true"><i class="dot"></i>Incident reporting</div>
+                    <div class="pop pop-d par-v" style="--k: -1" aria-hidden="true"><span class="ok">✓</span>Volunteer coordination</div>
                   </div>
                 </div>
                 <div class="proj-info">
-                  <p class="proj-no">
-                    01 <span>/ Disaster Management System</span>
-                  </p>
+                  <p class="proj-no">01 <span>/ Disaster Management System</span></p>
                   <h3>ResQLink</h3>
-                  <p>
-                    A full-stack disaster management platform for incident
-                    reporting, emergency communication and volunteer
-                    coordination.
-                  </p>
-                  <ul class="bullets">
-                    <li>
-                      Built RESTful APIs with Node.js, Express.js and MySQL.
-                    </li>
-                    <li>
-                      Built responsive React.js interfaces with interactive
-                      maps.
-                    </li>
+                  <ul class="proj-meta">
+                    <li class="feat">Featured project</li>
+                    <li>Team project</li>
+                    <li>Role: Full-Stack Developer</li>
                   </ul>
+                  <p class="proj-lead">A web-based disaster management system that helps authorities, volunteers and citizens coordinate during emergencies.</p>
+                  <dl class="proj-facts">
+                    <div>
+                      <dt>The need</dt>
+                      <dd>In an emergency, authorities, volunteers and citizens need one shared place to report incidents and organise the response.</dd>
+                    </div>
+                    <div>
+                      <dt>What it does</dt>
+                      <dd>Citizens report incidents, volunteers manage their availability and assignments, and administrators track alerts and resources. Access is role-based, and incidents appear on an interactive map.</dd>
+                    </div>
+                    <div class="mine">
+                      <dt>My part</dt>
+                      <dd>Built RESTful APIs with Node.js, Express.js and MySQL, and responsive React.js interfaces with interactive maps.</dd>
+                    </div>
+                  </dl>
+                  <!-- RESULT (optional): if this project had a real outcome (where it was presented,
+                       who used it, a hackathon it was built for), add one more row above, for example:
+                       <div><dt>Result</dt><dd>...</dd></div> -->
+                  <!-- LIVE DEMO: the Vercel deployment was offline when this was written. Once it is back,
+                       add a "Live demo" button next to the GitHub one in .proj-foot below. -->
+                </div>
+                <div class="proj-foot">
                   <ul class="chips">
                     <li>React.js</li>
                     <li>Node.js</li>
@@ -2939,76 +3218,56 @@
                     <li>MySQL</li>
                   </ul>
                   <div class="proj-links">
-                    <a
-                      class="btn sm primary"
-                      href="https://res-q-link-project-lake.vercel.app/"
-                      target="_blank"
-                      rel="noopener"
-                      >Live demo <svg class="i"><use href="#i-ext" /></svg
-                    ></a>
-                    <a
-                      class="btn sm ghost"
-                      href="https://github.com/KasunV-git/ResQLink-Project"
-                      target="_blank"
-                      rel="noopener"
-                      ><svg class="i fill"><use href="#i-github" /></svg>Source
-                      code</a
+                    <a class="btn sm primary" href="https://github.com/KasunV-git/ResQLink-Project" target="_blank" rel="noopener"
+                      ><svg class="i fill"><use href="#i-github" /></svg>View the code on GitHub<span class="sr"> (opens in a new tab)</span></a
                     >
                   </div>
                 </div>
               </div>
             </article>
 
+            <div class="pair">
             <article class="pcard">
               <div class="proj">
-                <div class="shot" data-pv data-tilt aria-hidden="true">
+                <!-- TicketHub has no screenshot yet. This is a labelled illustration, not a picture of the app.
+                     To replace it: save a real screenshot as assets/img/project-tickethub.png and copy the
+                     "shot real" block from the SGPA card below. -->
+                <div class="shot art" data-pv data-tilt aria-hidden="true">
                   <div class="shot-in">
                     <div class="frame">
-                      <div class="win-bar">
-                        <i></i><i></i><i></i
-                        ><span>TicketHub · browse events</span>
-                      </div>
                       <div class="canvas m-tix">
                         <div class="pl tix-bg par-v" style="--k: 0.55"></div>
-                        <div class="pl posters par-v" style="--k: 0.22">
-                          <div class="poster">
-                            <b>Movies</b><u></u><s></s><em>Book</em>
-                          </div>
-                          <div class="poster">
-                            <b>Sports</b><u></u><s></s><em>Book</em>
-                          </div>
-                          <div class="poster">
-                            <b>Attractions</b><u></u><s></s><em>Book</em>
-                          </div>
+                        <div class="pl tiles par-v" style="--k: 0.22">
+                          <div class="tile">Movies</div>
+                          <div class="tile">Sports</div>
+                          <div class="tile">Attractions</div>
                         </div>
+                        <span class="art-note">Illustration</span>
                       </div>
                     </div>
                     <div class="pop ticket par-v" style="--k: -0.6">
                       <b>ADMIT ONE</b><small>TICKETHUB</small>
                     </div>
-                    <div class="pop pop-b par-v" style="--k: -1">
-                      <span class="ok">✓</span>Form validated
-                    </div>
                   </div>
                 </div>
                 <div class="proj-info">
-                  <p class="proj-no">
-                    02 <span>/ Centralized Event Booking Platform</span>
-                  </p>
+                  <p class="proj-no">02 <span>/ Centralized Event Booking Platform</span></p>
                   <h3>TicketHub</h3>
-                  <p>
-                    A database-driven event booking platform for movies,
-                    sporting events and attractions, built with PHP and MySQL.
-                  </p>
-                  <ul class="bullets">
-                    <li>
-                      Implemented JavaScript validation and dynamic booking
-                      workflows.
-                    </li>
-                    <li>
-                      Designed responsive interfaces for improved usability.
-                    </li>
+                  <ul class="proj-meta">
+                    <li>Team project</li>
+                    <li>Role: Full-Stack Developer</li>
                   </ul>
+                  <p class="proj-lead">A PHP and MySQL booking site that brings movies, sporting events and attractions together on one platform.</p>
+                  <dl class="proj-facts">
+                    <div>
+                      <dt>What it does</dt>
+                      <dd>Visitors browse events by category, register, sign in and make bookings. An admin area gives an overview of activity on the site.</dd>
+                    </div>
+                    <div class="mine">
+                      <dt>My part</dt>
+                      <dd>Implemented JavaScript validation and dynamic booking workflows, and designed responsive interfaces for improved usability.</dd>
+                    </div>
+                  </dl>
                   <ul class="chips">
                     <li>PHP</li>
                     <li>MySQL</li>
@@ -3017,13 +3276,8 @@
                     <li>CSS3</li>
                   </ul>
                   <div class="proj-links">
-                    <a
-                      class="btn sm ghost"
-                      href="https://github.com/Avishka-4/Ticket-hub"
-                      target="_blank"
-                      rel="noopener"
-                      ><svg class="i fill"><use href="#i-github" /></svg>Source
-                      code</a
+                    <a class="btn sm ghost" href="https://github.com/Avishka-4/Ticket-hub" target="_blank" rel="noopener"
+                      ><svg class="i fill"><use href="#i-github" /></svg>Source code<span class="sr"> (opens in a new tab)</span></a
                     >
                   </div>
                 </div>
@@ -3036,106 +3290,252 @@
                   <div class="shot-in">
                     <div class="frame">
                       <div class="win-bar" aria-hidden="true">
-                        <i></i><i></i><i></i
-                        ><span>University SGPA Calculator</span>
+                        <i></i><i></i><i></i><span>University SGPA Calculator</span>
                       </div>
                       <div class="canvas">
-                        <img
-                          src="assets/img/project-sgpa.png"
-                          width="1919"
-                          height="967"
-                          loading="lazy"
-                          alt="University SGPA Calculator form with student information fields and a subject grades table"
-                        />
+                        <img src="assets/img/project-sgpa.png" width="1919" height="967" loading="lazy" alt="University SGPA Calculator form with student information fields and a subject grades table" />
                       </div>
                     </div>
-                    <div
-                      class="pop pop-a formula par-v"
-                      style="--k: -0.6"
-                      aria-hidden="true"
-                    >
-                      Σ(grade × credits) ÷ Σ credits
-                    </div>
-                    <div
-                      class="pop pop-b par-v"
-                      style="--k: -1"
-                      aria-hidden="true"
-                    >
-                      <span class="ok">✓</span>Input validated
-                    </div>
+                    <div class="pop pop-a formula par-v" style="--k: -0.6" aria-hidden="true">Σ(grade × credits) ÷ Σ credits</div>
+                    <div class="pop pop-b par-v" style="--k: -1" aria-hidden="true"><span class="ok">✓</span>Input validated</div>
                   </div>
                 </div>
                 <div class="proj-info">
                   <p class="proj-no">03 <span>/ Web Application</span></p>
                   <h3>University SGPA Calculator</h3>
-                  <p>
-                    A responsive web application that calculates and displays a
-                    student's semester GPA.
-                  </p>
-                  <ul class="bullets">
-                    <li>
-                      Implemented dynamic grade processing and input validation.
-                    </li>
-                    <li>
-                      Added result visualization with a user-friendly interface.
-                    </li>
+                  <ul class="proj-meta">
+                    <li>Solo project</li>
+                    <li>Role: Developer</li>
                   </ul>
+                  <p class="proj-lead">A calculator that turns a student's subject grades into their semester GPA and class, built for Software Engineering students at Sabaragamuwa University.</p>
+                  <dl class="proj-facts">
+                    <div>
+                      <dt>What it does</dt>
+                      <dd>Students choose a grade for each subject and see their SGPA and class straight away. It runs entirely in the browser with no server, and can export a result sheet as a PDF.</dd>
+                    </div>
+                    <div class="mine">
+                      <dt>My part</dt>
+                      <dd>Designed and built it end to end: dynamic grade processing, input validation and result visualisation.</dd>
+                    </div>
+                  </dl>
                   <ul class="chips">
                     <li>JavaScript</li>
                     <li>HTML5</li>
                     <li>CSS3</li>
                   </ul>
                   <div class="proj-links">
-                    <a
-                      class="btn sm ghost"
-                      href="https://github.com/RJ-4803/University-SGPA-Calculator"
-                      target="_blank"
-                      rel="noopener"
-                      ><svg class="i fill"><use href="#i-github" /></svg>Source
-                      code</a
+                    <a class="btn sm primary" href="https://rj-4803.github.io/University-SGPA-Calculator/" target="_blank" rel="noopener"
+                      >Live demo <svg class="i"><use href="#i-ext" /></svg><span class="sr"> (opens in a new tab)</span></a
+                    >
+                    <a class="btn sm ghost" href="https://github.com/RJ-4803/University-SGPA-Calculator" target="_blank" rel="noopener"
+                      ><svg class="i fill"><use href="#i-github" /></svg>Source code<span class="sr"> (opens in a new tab)</span></a
                     >
                   </div>
                 </div>
               </div>
             </article>
+            </div>
           </div>
         </section>
       </div>
       <!-- /act 1 -->
 
+      <div id="achievements">
+      <!-- ================= PROOF: competition results (parallax scene; the checkpoint path draws on scroll) ================= -->
+      <section class="band" data-pv data-draw aria-labelledby="proof-h">
+        <div class="band-bg" aria-hidden="true">
+          <div class="layer grid par-v" style="--k: 0.4"></div>
+          <div class="layer par-v" style="--k: 0.8">
+            <span class="wire lane" style="--y: 30%; --w: 46%"><i></i></span>
+            <span class="wire lane" style="--y: 31.6%; --w: 30%"></span>
+            <span class="wire lane" style="--y: 33.2%; --w: 18%"></span>
+            <span class="wire lane r" style="--y: 37%; --w: 26%"><i style="--dl: -2s"></i></span>
+            <span class="wire lane" style="--y: 44%; --w: 12%"><i style="--dl: -4s"></i></span>
+            <span class="wire lane" style="--y: 45.6%; --w: 20%"></span>
+            <span class="wire lane r" style="--y: 52%; --w: 16%"><i style="--dl: -1s"></i></span>
+            <span class="wire lane r" style="--y: 53.6%; --w: 9%"></span>
+            <span class="wire lane" style="--y: 60%; --w: 22%"><i style="--dl: -5s"></i></span>
+            <span class="wire lane r" style="--y: 65.4%; --w: 24%"></span>
+            <span class="wire lane r" style="--y: 67%; --w: 38%"><i style="--dl: -3s"></i></span>
+            <span class="wire lane r" style="--y: 68.6%; --w: 54%"></span>
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="proof glass rv">
+            <p class="kicker">Achievements</p>
+            <h2 id="proof-h" data-rise>Tested in competition.</h2>
+            <ol class="results">
+              <li>
+                <b class="grad">Finalist</b><span>J'Pura Xtreme 3.0 Hackathon</span
+                ><small>University Category</small>
+              </li>
+              <li>
+                <b class="grad">Top 10</b><span>Aurora Hackathon</span
+                ><small>Among competing teams</small>
+              </li>
+              <li>
+                <b class="grad">3 more</b><span>Technical competitions</span
+                ><small>IEEE INSL, HackOra and SLASSCOM</small>
+              </li>
+            </ol>
+            <!-- PROJECT LINK (optional): if one of the projects above was built at one of these
+                 hackathons, say so here in one line, for example
+                 "ResQLink was our J'Pura Xtreme 3.0 entry." It is the strongest link you can make
+                 between a result and the work behind it, and only you know whether it is true. -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= BEYOND THE CLASSROOM ================= -->
+      <section class="sec" data-pv>
+        <div class="aura" aria-hidden="true">
+          <i class="par-v" style="--x: 88%; --y: 28%; --d: min(62vw, 560px); --k: 0.7"></i>
+          <i class="par-v t" style="--x: 8%; --y: 72%; --d: min(58vw, 520px); --k: -0.6"></i>
+        </div>
+        <div class="wrap">
+          <header class="sec-head">
+            <p class="kicker">Beyond code</p>
+            <h2 data-rise>Beyond the classroom.</h2>
+          </header>
+          <ul class="beyond">
+            <li class="rv">
+              <svg class="i"><use href="#i-users" /></svg
+              ><span class="ach-tag">Leadership</span>
+              <h3>Media Lead, Leo Club</h3>
+              <p>
+                Managed multimedia content, event promotions and digital
+                campaigns for community initiatives.
+              </p>
+            </li>
+            <li class="rv">
+              <svg class="i"><use href="#i-pen" /></svg
+              ><span class="ach-tag">Technical writing</span>
+              <h3>Articles on Medium</h3>
+              <p>
+                Published articles on GUI design patterns and software
+                engineering concepts.
+                <a href="https://medium.com/@renujaanravichandran" target="_blank" rel="noopener"
+                  >Read them on Medium<span class="sr"> (opens in a new tab)</span></a
+                >.
+              </p>
+            </li>
+            <li class="rv">
+              <svg class="i"><use href="#i-award" /></svg
+              ><span class="ach-tag">Certification</span>
+              <h3>Claude 101</h3>
+              <p>Certificate of Completion, Anthropic.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      </div>
+      <!-- /achievements -->
+
+      <!-- ================= SKILLS ================= -->
+      <section class="sec alt" id="skills" data-pv>
+        <div class="aura" aria-hidden="true">
+          <i class="par-v" style="--x: 88%; --y: 72%; --d: min(62vw, 560px); --k: 0.7"></i>
+          <i class="par-v t" style="--x: 8%; --y: 22%; --d: min(58vw, 520px); --k: -0.6"></i>
+        </div>
+        <div class="wrap">
+          <header class="sec-head">
+            <p class="kicker">Skills</p>
+            <h2 data-rise>The tools I work with.</h2>
+            <p class="legend"><i></i>Highlighted: used in the projects above.</p>
+          </header>
+          <p class="flow-note">The request path</p>
+          <div class="skill-grid flow">
+            <article class="skill rv">
+              <div class="skill-top">
+                <svg class="i"><use href="#i-layout" /></svg>
+                <h3>Frontend</h3>
+              </div>
+              <ul class="chips">
+                <li class="core">React.js</li>
+                <li class="core">HTML5</li>
+                <li class="core">CSS3</li>
+                <li class="core">Responsive UI</li>
+              </ul>
+            </article>
+            <p class="hop" aria-hidden="true">REST API</p>
+            <article class="skill rv">
+              <div class="skill-top">
+                <svg class="i"><use href="#i-server" /></svg>
+                <h3>Backend</h3>
+              </div>
+              <ul class="chips">
+                <li class="core">Node.js</li>
+                <li class="core">Express.js</li>
+                <li class="core">RESTful APIs</li>
+              </ul>
+            </article>
+            <p class="hop" aria-hidden="true">SQL · NoSQL</p>
+            <article class="skill rv">
+              <div class="skill-top">
+                <svg class="i"><use href="#i-db" /></svg>
+                <h3>Databases</h3>
+              </div>
+              <ul class="chips">
+                <li class="core">MySQL</li>
+                <li>MongoDB</li>
+                <li>Database Design</li>
+              </ul>
+            </article>
+          </div>
+          <p class="flow-note">Across the stack</p>
+          <div class="skill-grid">
+            <article class="skill rv">
+              <div class="skill-top">
+                <svg class="i"><use href="#i-code" /></svg>
+                <h3>Languages</h3>
+              </div>
+              <ul class="chips">
+                <li class="core">JavaScript (ES6+)</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li class="core">PHP</li>
+                <li>C</li>
+              </ul>
+            </article>
+            <article class="skill rv">
+              <div class="skill-top">
+                <svg class="i"><use href="#i-tool" /></svg>
+                <h3>Tools</h3>
+              </div>
+              <ul class="chips">
+                <li class="core">Git</li>
+                <li class="core">GitHub</li>
+                <li>Docker</li>
+                <li>Kubernetes</li>
+                <li>Postman</li>
+                <li>XAMPP</li>
+                <li>Figma</li>
+                <li>Jira</li>
+              </ul>
+            </article>
+            <article class="skill rv">
+              <div class="skill-top">
+                <svg class="i"><use href="#i-flow" /></svg>
+                <h3>Engineering practice</h3>
+              </div>
+              <ul class="chips">
+                <li>OOP</li>
+                <li>Data Structures &amp; Algorithms</li>
+                <li>Agile / Scrum</li>
+                <li>SDLC</li>
+                <li>Software Testing</li>
+                <li>Version Control</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <!-- ================= ABOUT ================= -->
       <section class="sec" id="about" data-pv>
         <div class="aura" aria-hidden="true">
-          <i
-            class="par-v"
-            style="
-              --x: 88%;
-              --y: 20%;
-              --d: min(62vw, 560px);
-              --c: rgba(70, 200, 255, 0.26);
-              --k: 0.7;
-            "
-          ></i>
-          <i
-            class="par-v"
-            style="
-              --x: 8%;
-              --y: 64%;
-              --d: min(58vw, 520px);
-              --c: rgba(165, 150, 255, 0.28);
-              --k: -0.6;
-            "
-          ></i>
-          <i
-            class="par-v"
-            style="
-              --x: 68%;
-              --y: 94%;
-              --d: min(48vw, 420px);
-              --c: rgba(61, 245, 200, 0.2);
-              --k: 1;
-            "
-          ></i>
+          <i class="par-v" style="--x: 88%; --y: 20%; --d: min(62vw, 560px); --k: 0.7"></i>
+          <i class="par-v t" style="--x: 8%; --y: 66%; --d: min(58vw, 520px); --k: -0.6"></i>
         </div>
         <div class="wrap">
           <header class="sec-head">
@@ -3170,6 +3570,9 @@
                 <li>
                   <span>Looking for</span><b>Software Engineer internship</b>
                 </li>
+                <!-- CURRENTLY LEARNING (optional): uncomment and fill in when you have something real.
+                <li><span>Currently learning</span><b>...</b></li>
+                -->
               </ul>
             </div>
             <aside class="card rv" aria-labelledby="edu-h">
@@ -3195,362 +3598,20 @@
         </div>
       </section>
 
-      <!-- ================= BAND: numbers (parallax scene) ================= -->
-      <section class="band" data-pv aria-label="Highlights">
-        <div class="band-bg" aria-hidden="true">
-          <div class="layer sky-a par-v" style="--k: 0.45"></div>
-          <div class="layer par-v" style="--k: 0.7">
-            <div class="stars a"></div>
-            <div class="stars b"></div>
-          </div>
-          <div class="layer sparkles par-v" style="--k: 0.58">
-            <i class="sp" style="--x: 8%; --y: 30%; --z: 18px; --d: 3.2s"></i>
-            <i
-              class="sp"
-              style="
-                --x: 24%;
-                --y: 52%;
-                --z: 12px;
-                --d: 2.7s;
-                --dl: -1s;
-                --c: #86f5d4;
-              "
-            ></i>
-            <i
-              class="sp"
-              style="
-                --x: 46%;
-                --y: 26%;
-                --z: 22px;
-                --d: 4s;
-                --dl: -2s;
-                --c: #b9a8ff;
-              "
-            ></i>
-            <i
-              class="sp"
-              style="--x: 68%; --y: 48%; --z: 14px; --d: 3s; --dl: -0.5s"
-            ></i>
-            <i
-              class="sp"
-              style="
-                --x: 86%;
-                --y: 32%;
-                --z: 20px;
-                --d: 3.6s;
-                --dl: -1.5s;
-                --c: #86f5d4;
-              "
-            ></i>
-            <i
-              class="sp"
-              style="--x: 94%; --y: 58%; --z: 12px; --d: 2.9s; --dl: -2.3s"
-            ></i>
-          </div>
-          <div class="floor"></div>
-        </div>
-        <div class="wrap stats">
-          <div class="stat glass rv">
-            <b class="grad">3</b><span>Full-stack projects</span
-            ><small>ResQLink, TicketHub and an SGPA calculator</small>
-          </div>
-          <div class="stat glass rv">
-            <b class="grad">2</b><span>Hackathon placements</span
-            ><small>Finalist at J'Pura Xtreme 3.0, Top 10 at Aurora</small>
-          </div>
-          <div class="stat glass rv">
-            <b class="grad">5</b><span>Programming languages</span
-            ><small>JavaScript, Java, Python, PHP and C</small>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= SKILLS ================= -->
-      <section class="sec alt" id="skills" data-pv>
-        <div class="aura" aria-hidden="true">
-          <i
-            class="par-v"
-            style="
-              --x: 88%;
-              --y: 72%;
-              --d: min(62vw, 560px);
-              --c: rgba(70, 200, 255, 0.26);
-              --k: 0.7;
-            "
-          ></i>
-          <i
-            class="par-v"
-            style="
-              --x: 8%;
-              --y: 22%;
-              --d: min(58vw, 520px);
-              --c: rgba(165, 150, 255, 0.28);
-              --k: -0.6;
-            "
-          ></i>
-          <i
-            class="par-v"
-            style="
-              --x: 68%;
-              --y: 96%;
-              --d: min(48vw, 420px);
-              --c: rgba(61, 245, 200, 0.2);
-              --k: 1;
-            "
-          ></i>
-        </div>
-        <div class="wrap">
-          <header class="sec-head">
-            <p class="kicker">Skills</p>
-            <h2 data-rise>The tools I work with.</h2>
-          </header>
-          <div class="skill-grid">
-            <article class="card skill rv">
-              <div class="skill-top">
-                <svg class="i"><use href="#i-code" /></svg>
-                <h3>Languages</h3>
-              </div>
-              <ul class="chips">
-                <li>JavaScript (ES6+)</li>
-                <li>Java</li>
-                <li>Python</li>
-                <li>PHP</li>
-                <li>C</li>
-              </ul>
-            </article>
-            <article class="card skill rv">
-              <div class="skill-top">
-                <svg class="i"><use href="#i-layout" /></svg>
-                <h3>Frontend</h3>
-              </div>
-              <ul class="chips">
-                <li>React.js</li>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>Responsive UI</li>
-              </ul>
-            </article>
-            <article class="card skill rv">
-              <div class="skill-top">
-                <svg class="i"><use href="#i-server" /></svg>
-                <h3>Backend</h3>
-              </div>
-              <ul class="chips">
-                <li>Node.js</li>
-                <li>Express.js</li>
-                <li>RESTful APIs</li>
-              </ul>
-            </article>
-            <article class="card skill rv">
-              <div class="skill-top">
-                <svg class="i"><use href="#i-db" /></svg>
-                <h3>Databases</h3>
-              </div>
-              <ul class="chips">
-                <li>MySQL</li>
-                <li>MongoDB</li>
-                <li>Database Design</li>
-              </ul>
-            </article>
-            <article class="card skill rv">
-              <div class="skill-top">
-                <svg class="i"><use href="#i-tool" /></svg>
-                <h3>Tools</h3>
-              </div>
-              <ul class="chips">
-                <li>Git</li>
-                <li>GitHub</li>
-                <li>Docker</li>
-                <li>Kubernetes</li>
-                <li>Postman</li>
-                <li>XAMPP</li>
-                <li>Figma</li>
-                <li>Jira</li>
-              </ul>
-            </article>
-            <article class="card skill rv">
-              <div class="skill-top">
-                <svg class="i"><use href="#i-flow" /></svg>
-                <h3>Engineering practice</h3>
-              </div>
-              <ul class="chips">
-                <li>OOP</li>
-                <li>Data Structures &amp; Algorithms</li>
-                <li>Agile / Scrum</li>
-                <li>SDLC</li>
-                <li>Software Testing</li>
-                <li>Version Control</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= BAND: statement (parallax scene) ================= -->
-      <section class="band" data-pv aria-label="Hackathons">
-        <div class="band-bg" aria-hidden="true">
-          <div class="layer sky-b par-v" style="--k: 0.45"></div>
-          <div class="layer par-v" style="--k: 0.7">
-            <div class="stars a"></div>
-            <div class="stars b"></div>
-          </div>
-          <div class="layer sparkles par-v" style="--k: 0.58">
-            <i
-              class="sp"
-              style="--x: 10%; --y: 34%; --z: 20px; --d: 3.4s; --c: #86f5d4"
-            ></i>
-            <i
-              class="sp"
-              style="--x: 30%; --y: 28%; --z: 12px; --d: 2.8s; --dl: -1.1s"
-            ></i>
-            <i
-              class="sp"
-              style="
-                --x: 52%;
-                --y: 40%;
-                --z: 16px;
-                --d: 3.8s;
-                --dl: -2.1s;
-                --c: #b9a8ff;
-              "
-            ></i>
-            <i
-              class="sp"
-              style="--x: 73%; --y: 30%; --z: 22px; --d: 4.1s; --dl: -0.4s"
-            ></i>
-            <i
-              class="sp"
-              style="
-                --x: 90%;
-                --y: 44%;
-                --z: 14px;
-                --d: 3s;
-                --dl: -1.7s;
-                --c: #86f5d4;
-              "
-            ></i>
-          </div>
-          <div class="city far par-v" style="--k: 0.3"></div>
-          <div class="city mid par-v" style="--k: 0.16"></div>
-          <div class="city near par-v" style="--k: 0.04"></div>
-        </div>
-        <div class="wrap">
-          <div class="quote glass rv">
-            <p>
-              Built under pressure: finalist at J'Pura Xtreme 3.0 and Top 10 at
-              the Aurora Hackathon.
-            </p>
-            <span>HACKATHONS · COMPETITIVE PROGRAMMING</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= ACHIEVEMENTS ================= -->
-      <section class="sec" id="achievements" data-pv>
-        <div class="aura" aria-hidden="true">
-          <i
-            class="par-v"
-            style="
-              --x: 88%;
-              --y: 28%;
-              --d: min(62vw, 560px);
-              --c: rgba(70, 200, 255, 0.26);
-              --k: 0.7;
-            "
-          ></i>
-          <i
-            class="par-v"
-            style="
-              --x: 8%;
-              --y: 70%;
-              --d: min(58vw, 520px);
-              --c: rgba(165, 150, 255, 0.28);
-              --k: -0.6;
-            "
-          ></i>
-          <i
-            class="par-v"
-            style="
-              --x: 68%;
-              --y: 90%;
-              --d: min(48vw, 420px);
-              --c: rgba(61, 245, 200, 0.2);
-              --k: 1;
-            "
-          ></i>
-        </div>
-        <div class="wrap">
-          <header class="sec-head">
-            <p class="kicker">Achievements</p>
-            <h2 data-rise>Beyond the classroom.</h2>
-          </header>
-          <div class="ach-grid">
-            <article class="card ach rv">
-              <svg class="i"><use href="#i-trophy" /></svg
-              ><span class="ach-tag">Finalist</span>
-              <h3>J'Pura Xtreme 3.0 Hackathon</h3>
-              <p>Finalist in the University Category.</p>
-            </article>
-            <article class="card ach rv">
-              <svg class="i"><use href="#i-award" /></svg
-              ><span class="ach-tag">Top 10</span>
-              <h3>Aurora Hackathon</h3>
-              <p>Achieved a Top 10 placement among competing teams.</p>
-            </article>
-            <article class="card ach rv">
-              <svg class="i"><use href="#i-flag" /></svg
-              ><span class="ach-tag">Competitions</span>
-              <h3>IEEE INSL, HackOra and SLASSCOM</h3>
-              <p>
-                Participated in competitive programming and technical
-                competitions.
-              </p>
-            </article>
-            <article class="card ach rv">
-              <svg class="i"><use href="#i-users" /></svg
-              ><span class="ach-tag">Leadership</span>
-              <h3>Media Lead, Leo Club</h3>
-              <p>
-                Managed multimedia content, event promotions and digital
-                campaigns for community initiatives.
-              </p>
-            </article>
-            <article class="card ach rv">
-              <svg class="i"><use href="#i-pen" /></svg
-              ><span class="ach-tag">Technical writing</span>
-              <h3>Articles on Medium</h3>
-              <p>
-                Published articles on GUI design patterns and software
-                engineering concepts.
-                <a
-                  href="https://medium.com/@renujaanravichandran"
-                  target="_blank"
-                  rel="noopener"
-                  >Read them on Medium</a
-                >.
-              </p>
-            </article>
-            <article class="card ach rv">
-              <svg class="i"><use href="#i-award" /></svg
-              ><span class="ach-tag">Certification</span>
-              <h3>Claude 101</h3>
-              <p>Certificate of Completion, Anthropic.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <!-- ================= CONTACT (pinned; chips drift past behind the card) ================= -->
       <section class="contact" id="contact" data-pv>
         <div class="contact-pin">
           <div class="band-bg" aria-hidden="true">
-            <div class="layer sky-c par-v" style="--k: 0.2"></div>
-            <div class="layer par-v" style="--k: 0.3">
-              <div class="stars a"></div>
-              <div class="stars b"></div>
+            <div class="layer grid par-v" style="--k: 0.2"></div>
+            <div class="layer par-v" style="--k: 0.35">
+              <span class="wire lane" style="--y: 44%; --w: 20%"><i></i></span>
+              <span class="wire lane r" style="--y: 50%; --w: 16%"><i style="--dl: -4s"></i></span>
+              <span class="wire lane" style="--y: 58%; --w: 12%"><i style="--dl: -2s"></i></span>
             </div>
-            <div class="sun par-v" style="--k: -0.12"></div>
-            <div class="floor"></div>
+            <div class="rings endpoint par-v" style="--k: -0.12">
+              <span class="pulse"></span>
+              <span class="pulse" style="--dl: -3.5s"></span>
+            </div>
           </div>
           <div class="float" aria-hidden="true">
             <span
@@ -3646,6 +3707,15 @@
                 >
                   Copy email
                 </button>
+                <span class="sr" role="status" id="copy-status"></span>
+                <a
+                  class="btn ghost"
+                  href="assets/documents/Renujaan_Ravichandran_Software_Engineer_Intern_CV2_V2.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  type="application/pdf"
+                  ><svg class="i"><use href="#i-doc" /></svg>View CV<span class="sr"> (opens in a new tab)</span></a
+                >
               </div>
               <ul class="contact-list">
                 <li>
@@ -3663,7 +3733,7 @@
                     href="https://github.com/RJ-4803"
                     target="_blank"
                     rel="noopener"
-                    ><svg class="i fill"><use href="#i-github" /></svg>GitHub</a
+                    ><svg class="i fill"><use href="#i-github" /></svg>GitHub<span class="sr"> (opens in a new tab)</span></a
                   >
                 </li>
                 <li>
@@ -3672,7 +3742,7 @@
                     target="_blank"
                     rel="noopener"
                     ><svg class="i fill"><use href="#i-linkedin" /></svg
-                    >LinkedIn</a
+                    >LinkedIn<span class="sr"> (opens in a new tab)</span></a
                   >
                 </li>
                 <li>
@@ -3680,7 +3750,7 @@
                     href="https://medium.com/@renujaanravichandran"
                     target="_blank"
                     rel="noopener"
-                    ><svg class="i fill"><use href="#i-medium" /></svg>Medium</a
+                    ><svg class="i fill"><use href="#i-medium" /></svg>Medium<span class="sr"> (opens in a new tab)</span></a
                   >
                 </li>
               </ul>
@@ -3693,6 +3763,12 @@
     <footer class="foot">
       <div class="wrap">
         <span>© <span id="year">2026</span> Renujaan Ravichandran</span
+        ><a
+          class="foot-link"
+          href="https://github.com/RJ-4803/My-Portfolio"
+          target="_blank"
+          rel="noopener"
+          ><svg class="i fill"><use href="#i-github" /></svg>Source of this site<span class="sr"> (opens in a new tab)</span></a
         ><a class="to-top" href="#home"
           >Back to top
           <svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg
@@ -3724,24 +3800,46 @@
 
         $("#year").textContent = new Date().getFullYear();
 
-        /* mobile menu closes after picking a link */
-        const toggle = $("#nav-toggle");
-        $$(".nav-links a").forEach((a) =>
-          a.addEventListener("click", () => {
-            toggle.checked = false;
-          }),
+        /* a note for anyone who opens the developer tools */
+        console.log(
+          "%cHi, I'm Renujaan.%c\nThis site is a single HTML file: no framework and no build step.\nSource: https://github.com/RJ-4803/My-Portfolio",
+          "font: 700 16px system-ui; color: #36e3c9",
+          "font: 13px system-ui; color: #94a3bc",
         );
 
-        /* copy email */
+        /* menu button: opens and closes the links; also closes on a link, on Escape, or on a tap outside */
+        const toggle = $("#nav-toggle");
+        const menuOpen = () => toggle.getAttribute("aria-expanded") === "true";
+        const setMenu = (open) =>
+          toggle.setAttribute("aria-expanded", String(open));
+        toggle.addEventListener("click", () => setMenu(!menuOpen()));
+        $$(".nav-links a").forEach((a) =>
+          a.addEventListener("click", () => setMenu(false)),
+        );
+        addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && menuOpen()) {
+            setMenu(false);
+            toggle.focus();
+          }
+        });
+        addEventListener("click", (e) => {
+          if (menuOpen() && !e.target.closest(".nav")) setMenu(false);
+        });
+
+        /* copy email (the result is also announced to screen readers) */
         const copy = $("#copy");
+        const copyStatus = $("#copy-status");
         if (copy && navigator.clipboard) {
           copy.hidden = false;
           copy.addEventListener("click", async () => {
             try {
               await navigator.clipboard.writeText(copy.dataset.email);
               copy.textContent = "Copied ✓";
+              if (copyStatus)
+                copyStatus.textContent = "Email address copied to the clipboard";
               setTimeout(() => {
                 copy.textContent = "Copy email";
+                if (copyStatus) copyStatus.textContent = "";
               }, 1800);
             } catch (e) {
               location.href = "mailto:" + copy.dataset.email;
@@ -3767,6 +3865,63 @@
           );
         }
 
+        /* optional background video. Nothing is requested unless a path is set on .vid in the markup.
+           It plays only on wide screens with motion allowed, a normal connection and enough memory;
+           everything else gets the still poster (if one is set) over the drawn background. */
+        const vid = $(".vid");
+        let heroVideo = null;
+        if (vid && (vid.dataset.src || vid.dataset.poster)) {
+          const conn = navigator.connection || {};
+          const capable =
+            vid.dataset.src &&
+            !reduce &&
+            matchMedia("(min-width: 900px)").matches &&
+            !conn.saveData &&
+            !/2g|3g/.test(conn.effectiveType || "") &&
+            (navigator.deviceMemory || 8) >= 4;
+          const show = () => vid.classList.add("on");
+          const still = () => {
+            heroVideo = null;
+            if (!vid.dataset.poster) return vid.replaceChildren();
+            const img = new Image();
+            img.alt = "";
+            img.decoding = "async";
+            img.onload = show;
+            img.src = vid.dataset.poster;
+            vid.replaceChildren(img);
+          };
+          const start = () => {
+            const v = document.createElement("video");
+            v.muted = true;
+            v.loop = true;
+            v.playsInline = true;
+            v.autoplay = true;
+            v.preload = "auto";
+            v.disablePictureInPicture = true;
+            v.tabIndex = -1;
+            v.setAttribute("muted", "");
+            v.setAttribute("playsinline", "");
+            if (vid.dataset.poster) v.poster = vid.dataset.poster;
+            v.addEventListener("canplay", show, { once: true });
+            v.addEventListener("error", still, { once: true });
+            v.src = vid.dataset.src;
+            vid.replaceChildren(v);
+            heroVideo = v;
+          };
+          /* never competes with the page's own loading */
+          if (!capable) still();
+          else if (document.readyState === "complete") start();
+          else addEventListener("load", start, { once: true });
+        }
+        /* the video rests whenever the hero is off screen or the tab is in the background */
+        const syncVideo = () => {
+          if (!heroVideo) return;
+          if (document.hidden || $(".hero").classList.contains("offscreen"))
+            heroVideo.pause();
+          else heroVideo.play().catch(() => {});
+        };
+        document.addEventListener("visibilitychange", syncVideo);
+
         /* Everything below is motion. With "reduce motion" on, the page stays a normal static page. */
         if (reduce) return;
 
@@ -3785,9 +3940,8 @@
               const target = a.hash.length > 1 ? $(a.hash) : null;
               if (!target) return;
               e.preventDefault();
-              lenis.scrollTo(a.hash === "#home" ? 0 : target, {
-                offset: a.hash === "#home" ? 0 : -(NAV - 2),
-              });
+              /* Lenis already honours scroll-padding-top and scroll-margin-top, so no extra offset here */
+              lenis.scrollTo(a.hash === "#home" ? 0 : target);
               history.replaceState(null, "", a.hash);
             }),
           );
@@ -3851,12 +4005,26 @@
           firstCard = $(".pcard");
         const contact = $(".contact"),
           contactCard = $(".contact-card"),
-          bar = $(".progress");
-        const starLayers = $$(".par-h").map((el) => ({
-          el,
-          k: num(el, "--k"),
-        }));
-        const skyline = $$(".hero .par-x").map((el) => ({
+          bar = $(".progress"),
+          cue = $(".scroll-cue");
+
+        /* decorative animation pauses in scenes that are scrolled out of view */
+        if ("IntersectionObserver" in window) {
+          const rest = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) =>
+                e.target.classList.toggle("offscreen", !e.isIntersecting),
+              );
+              syncVideo();
+            },
+            { rootMargin: "200px 0px" },
+          );
+          $$(".hero, .band, .contact, .stmt-pin, #skills").forEach((el) =>
+            rest.observe(el),
+          );
+        }
+        /* hero background layers: each sinks at its own rate while the next section covers the hero */
+        const depth = $$(".hero .par-x").map((el) => ({
           el,
           k: num(el, "--k"),
         }));
@@ -3864,7 +4032,7 @@
           host,
           amp: 0,
           layers: $$(".par-v", host).map((el) => ({ el, k: num(el, "--k") })),
-          floor: $(".floor", host),
+          draw: host.hasAttribute("data-draw"),
         }));
 
         let vh = 0,
@@ -3932,20 +4100,22 @@
             const cover = clamp((y - pinStart) / vh);
             grid.style.transform = `scale(${(1 - 0.3 * cover).toFixed(4)})`;
             grid.style.opacity = (1 - 0.4 * cover).toFixed(3);
-            const pre = Math.min(y, pinStart);
-            starLayers.forEach((l) => {
-              l.el.style.translate = `0 ${(l.k * pre).toFixed(1)}px`;
-            });
-            skyline.forEach((l) => {
+            depth.forEach((l) => {
               l.el.style.translate = `0 ${(l.k * cover * vh * 0.6).toFixed(1)}px`;
             });
+            if (cue) {
+              cue.style.opacity = (1 - clamp(y / 140)).toFixed(2);
+              cue.style.pointerEvents = y > 140 ? "none" : "";
+            }
           }
 
           /* statement: letters light up one after another, then the block fades as the first card covers it */
           if (chars.length) {
             let sp;
+            /* starts while the panel is still rising and finishes just after it pins,
+               so the sentence is fully lit before the first project arrives */
             if (stmtPinned)
-              sp = clamp((y - (workTop - 0.5 * vh)) / (1.05 * vh));
+              sp = clamp((y - (workTop - 0.6 * vh)) / (0.82 * vh));
             else {
               const r = stmt.getBoundingClientRect();
               sp = clamp((vh * 0.9 - r.top) / (vh * 0.55));
@@ -3976,8 +4146,12 @@
             h.layers.forEach((l) => {
               l.el.style.translate = `0 ${(l.k * shift).toFixed(1)}px`;
             });
-            if (h.floor)
-              h.floor.style.backgroundPosition = `0 ${(p * 540).toFixed(1)}px`;
+            /* checkpoint path: drawn by the time the panel reaches the middle of the screen */
+            if (h.draw)
+              h.host.style.setProperty(
+                "--draw",
+                clamp((p - 0.2) / 0.26).toFixed(3),
+              );
           });
 
           /* headings: letters rise as the heading travels up the lower half of the screen */
@@ -4016,11 +4190,37 @@
             measure();
             update();
           });
+        /* re-measure whenever the layout itself changes size (late fonts, images, rotation) */
+        if ("ResizeObserver" in window) {
+          let queued = false;
+          new ResizeObserver(() => {
+            if (queued) return;
+            queued = true;
+            requestAnimationFrame(() => {
+              queued = false;
+              measure();
+              update();
+            });
+          }).observe(document.body);
+        }
         measure();
         update();
         requestAnimationFrame(loop);
 
-        /* ---------- 5. 3D tilt that follows the pointer ---------- */
+        /* ---------- 5. project cards on touch screens ---------- */
+        /* there is no hover, so a card switches on while it crosses the middle of the screen */
+        if (!finePointer && "IntersectionObserver" in window) {
+          const focus = new IntersectionObserver(
+            (entries) =>
+              entries.forEach((e) =>
+                e.target.classList.toggle("on", e.isIntersecting),
+              ),
+            { rootMargin: "-42% 0px -42% 0px" },
+          );
+          $$(".pcard").forEach((c) => focus.observe(c));
+        }
+
+        /* ---------- 6. 3D tilt that follows the pointer ---------- */
         if (finePointer) {
           const stack = $("#stack");
           hero.addEventListener("pointermove", (e) => {
@@ -4030,6 +4230,9 @@
             stack.style.setProperty("--ry", (x * 16).toFixed(2) + "deg");
             stack.style.setProperty("--rx", (-yy * 10).toFixed(2) + "deg");
             hero.style.setProperty("--mx", (x * 2).toFixed(3));
+            /* where the brighter grid shows through */
+            hero.style.setProperty("--px", (e.clientX - r.left).toFixed(0) + "px");
+            hero.style.setProperty("--py", (e.clientY - r.top).toFixed(0) + "px");
           });
           hero.addEventListener("pointerleave", () => {
             stack.style.removeProperty("--ry");
